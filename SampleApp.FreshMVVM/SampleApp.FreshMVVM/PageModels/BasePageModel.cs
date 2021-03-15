@@ -2,10 +2,8 @@
 using FreshMvvm;
 using Plugin.Connectivity;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
