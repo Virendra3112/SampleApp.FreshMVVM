@@ -1,7 +1,5 @@
 ﻿using FreshMvvm;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SampleApp.FreshMVVM.PageModels;
 using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM.Helpers
@@ -24,7 +22,32 @@ namespace SampleApp.FreshMVVM.Helpers
 
         public static void InitializeAndShowMasterDetailPage()
         {
-           
+            masterDetailNav = new FreshMasterDetailNavigationContainer();
+
+            var hamburgerMenuPage = FreshPageModelResolver.ResolvePageModel<DrawerMenuPageModel>();
+            var animalCard = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
+            var basicNavigationContainer = new NavigationPage(animalCard)
+            {
+                //BarBackgroundColor = (Color)Application.Current.Resources["secondaryColor"],
+                BarTextColor = (Color.White)
+            };
+            masterDetailNav.Master = hamburgerMenuPage;
+            masterDetailNav.Detail = basicNavigationContainer;
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    masterDetailNav.IsGestureEnabled = false;
+                    break;
+
+                case Device.Android:
+                    masterDetailNav.IsGestureEnabled = true;
+                    break;
+
+                default:
+                    break;
+            }
+            Application.Current.MainPage = masterDetailNav;
+
         }
     }
 }
