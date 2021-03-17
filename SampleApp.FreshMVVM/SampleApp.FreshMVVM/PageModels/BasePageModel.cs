@@ -3,11 +3,13 @@ using FreshMvvm;
 using Plugin.Connectivity;
 using System;
 using System.ComponentModel;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
-    public class BasePageModel : FreshBasePageModel, INotifyPropertyChanged
+    public class BasePageModel : FreshBasePageModel, INotifyPropertyChanged, IDisposable
     {
         private bool _isNetworkAvailable;
 
@@ -41,6 +43,12 @@ namespace SampleApp.FreshMVVM.PageModels
             }
         }
 
+        private string _pageTitle;
+        public string PageTitle
+        {
+            get { return _pageTitle; }
+            set { SetPropertyValue(ref _pageTitle, value); }
+        }
 
         private void ShowLoading(bool value)
         {
@@ -92,24 +100,143 @@ namespace SampleApp.FreshMVVM.PageModels
 
 
 
+        //        #region INotifyPropertyChanged implementation
+
+        //#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
+        //        public event PropertyChangedEventHandler PropertyChanged;
+        //#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
+
+        //        /// <summary>
+        //        /// Raises the property changed.
+        //        /// </summary>
+        //        /// <param name="propertyName">Property name.</param>
+        //        protected new void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        //        {
+        //            if (PropertyChanged != null)
+        //            {
+        //                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //            }
+        //        }
+        //        #endregion
+
         #region INotifyPropertyChanged implementation
 
-#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
-        public event PropertyChangedEventHandler PropertyChanged;
-#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
+        /// <summary>
+        /// An event that fires when any of the property values change
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        #region Raise Property Changed
 
         /// <summary>
-        /// Raises the property changed.
+        /// Raise Property Changed using an expression function.
         /// </summary>
-        /// <param name="propertyName">Property name.</param>
-        protected new void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        /// <typeparam name="T"></typeparam>
+        /// <param name="propertyExpr"></param>
+        public void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpr)
         {
-            if (PropertyChanged != null)
+            var propertyName = GetMemberInfo(propertyExpr).Name;
+            RaisePropertyChangedExplicit(propertyName);
+        }
+
+        /// <summary>
+        /// Raise Property Changed using the CallerMemberName
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void RaisePropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            RaisePropertyChangedExplicit(propertyName);
+        }
+
+
+        /// <summary>
+        /// Raise Propery Changed explicitly passing the property name
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected void RaisePropertyChangedExplicit(string propertyName)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                var e = new PropertyChangedEventArgs(propertyName);
+                handler(this, e);
             }
         }
+
         #endregion
 
+        #region Set Property Value
+
+        /// <summary>
+        /// Set the property value using an expression function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="storageField"></param>
+        /// <param name="newValue"></param>
+        /// <param name="propertyExpr"></param>
+        /// <returns></returns>
+        protected bool SetPropertyValue<T>(ref T storageField, T newValue, Expression<Func<T>> propertyExpr)
+        {
+            if (Equals(storageField, newValue))
+                return false;
+
+            storageField = newValue;
+
+            var propertyName = GetMemberInfo(propertyExpr).Name;
+            RaisePropertyChangedExplicit(propertyName);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Set the property value using the CallerMemberName
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="storageField"></param>
+        /// <param name="newValue"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        protected bool SetPropertyValue<T>(ref T storageField, T newValue, [CallerMemberName] string propertyName = "")
+        {
+            if (Equals(storageField, newValue))
+                return false;
+
+            storageField = newValue;
+            RaisePropertyChangedExplicit(propertyName);
+
+            return true;
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        private MemberInfo GetMemberInfo(Expression expression)
+        {
+            MemberExpression operand;
+            LambdaExpression lambdaExpression = (LambdaExpression)expression;
+            if (lambdaExpression.Body as UnaryExpression != null)
+            {
+                UnaryExpression body = (UnaryExpression)lambdaExpression.Body;
+                operand = (MemberExpression)body.Operand;
+            }
+            else
+            {
+                operand = (MemberExpression)lambdaExpression.Body;
+            }
+            return operand.Member;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region IDisposable implementation
+
+        public virtual void Dispose()
+        {
+        }
+
+        #endregion
     }
 }
