@@ -2,11 +2,70 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.FreshMVVM.Pages.LoginPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid
+        RowSpacing="0"
+        ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+        <BoxView 
+            Grid.Row="0"
+            BackgroundColor="#00CCD6" />
+
+        <Image
+            Grid.Row="0"
+            Source="icon.png"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            HeightRequest="100"
+            WidthRequest="100" />
+
+        <Label 
+            Grid.Row="1"
+            Text="LOGIN"
+            FontSize="Large"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+
+        <StackLayout                
+            Grid.Row="2"
+            VerticalOptions="Fill"
+            HorizontalOptions="Center"
+            Spacing="15">
+
+            <StackLayout HorizontalOptions="Center" Spacing="5">
+                <Label 
+                    Text="Email:" />
+                <Entry 
+                    Text="{Binding Email}" 
+                    Keyboard="Email"
+                    WidthRequest="300" />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Spacing="5">
+                <Label 
+                    Text="Password:" />
+                <Entry 
+                    Text="{Binding Password}"
+                    WidthRequest="300"
+                    IsPassword="True" />
+            </StackLayout>
+
+            <Button  Text="Login" Command="{Binding LoginCommand}" />
         </StackLayout>
-    </ContentPage.Content>
+
+
+        
+       
+    </Grid>
 </ContentPage>
