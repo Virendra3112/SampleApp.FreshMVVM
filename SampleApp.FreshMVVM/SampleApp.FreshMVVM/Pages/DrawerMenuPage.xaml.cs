@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleApp.FreshMVVM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,10 @@ namespace SampleApp.FreshMVVM.Pages
         public DrawerMenuPage()
         {
             InitializeComponent();
+
+
         }
+
+       
     }
 }
