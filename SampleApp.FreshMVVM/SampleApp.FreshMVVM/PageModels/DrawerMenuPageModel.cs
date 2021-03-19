@@ -22,10 +22,7 @@ namespace SampleApp.FreshMVVM.PageModels
         public ICommand HamburgerMenuCommand { get; set; }
         public DrawerMenuPageModel()
         {
-            CreateMenu();
-
             LogoutCommand = new Command(OnLogoutClicked);
-
         }
 
         public void CreateMenu()
@@ -37,7 +34,13 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList.Add(new MenuItems { Name = "Profile" });
             MenuList.Add(new MenuItems { Name = "Settings" });
             MenuList.Add(new MenuItems { Name = "Logout" });
+        }
 
+        public override void Init(object initData)
+        {
+            base.Init(initData);
+
+            CreateMenu();
         }
 
         private async void OnLogoutClicked(object obj)
