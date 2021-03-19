@@ -6,4 +6,10 @@
 
     <Color x:Key="primaryBackgroundColor">#FF0000</Color>
     <Color x:Key="secondaryBackgroundColor">#F1F2F2</Color>
+
+
+    <Color x:Key="blackColor">#000000</Color>
+    <Color x:Key="whiteColor">#ffffff</Color>
+    <Color x:Key="transparent">#0000ffff</Color>
+    <Color x:Key="grayColor">#828282</Color>
 </ResourceDictionary>
