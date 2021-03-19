@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
@@ -16,9 +18,14 @@ namespace SampleApp.FreshMVVM.PageModels
             set { SetPropertyValue(ref _menu, value); }
         }
 
+        public ICommand LogoutCommand { get; set; }
+        public ICommand HamburgerMenuCommand { get; set; }
         public DrawerMenuPageModel()
         {
             CreateMenu();
+
+            LogoutCommand = new Command(OnLogoutClicked);
+
         }
 
         public void CreateMenu()
@@ -30,6 +37,11 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList.Add(new MenuItems { Name = "Profile" });
             MenuList.Add(new MenuItems { Name = "Settings" });
             MenuList.Add(new MenuItems { Name = "Logout" });
+
+        }
+
+        private async void OnLogoutClicked(object obj)
+        {
 
         }
 
