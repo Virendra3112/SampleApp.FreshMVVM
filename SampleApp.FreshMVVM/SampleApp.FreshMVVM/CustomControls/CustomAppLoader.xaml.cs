@@ -27,7 +27,7 @@ namespace SampleApp.FreshMVVM.CustomControls
             Style = SKPaintStyle.Stroke,
 
             Color = SKColor.FromHsl(240, 8, 66),
-            StrokeWidth = 25,
+            StrokeWidth = 15,
             IsAntialias = true
 
         };
@@ -83,13 +83,13 @@ namespace SampleApp.FreshMVVM.CustomControls
 
             float left, right;
             float top, bottom;
-            right = left = (info.Width - 500) / 2; //get the left and right postions to support all the devices
-            top = bottom = (info.Height - 500) / 2;//get the top and bottom postions to support all the devices
+            right = left = (info.Width - 200) / 2; //get the left and right postions to support all the devices
+            top = bottom = (info.Height - 200) / 2;//get the top and bottom postions to support all the devices
 
             //first Arc
             SKRect rect = new SKRect(left, top, info.Width - right, info.Height - bottom);
 
-            canvas.DrawCircle(info.Width / 2, info.Height / 2, 250, firstArcPaint);
+            canvas.DrawCircle(info.Width / 2, info.Height / 2, 100, firstArcPaint);
             using (SKPath path = new SKPath())
             {
                 path.AddArc(rect, OvalStartAngle, OvalSweepAngle);
