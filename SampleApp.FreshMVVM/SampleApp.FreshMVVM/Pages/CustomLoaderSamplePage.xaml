@@ -2,18 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SampleApp.FreshMVVM.CustomControls"
+             Title="Custom Loader Sample" Background="#003a5b"
              x:Class="SampleApp.FreshMVVM.Pages.CustomLoaderSamplePage">
     <ContentPage.Content>
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
-            <local:CustomAppLoader Grid.Row="0" />
-
+            <Frame Grid.Row="0" CornerRadius="20" BackgroundColor="LightPink"
+                   Margin="10" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="90"
+                   >
+            <local:CustomAppLoader  />
+            </Frame>
 
         </Grid>
         
