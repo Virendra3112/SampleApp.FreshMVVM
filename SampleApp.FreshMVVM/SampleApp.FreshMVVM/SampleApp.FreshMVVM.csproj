@@ -22,10 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CustomControls\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <EmbeddedResource Update="CustomControls\CustomAppLoader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\DrawerMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
