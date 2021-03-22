@@ -14,9 +14,8 @@
             </Grid.RowDefinitions>
 
             <Frame Grid.Row="0" CornerRadius="20" BackgroundColor="LightPink"
-                   Margin="10" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="90"
-                   >
-            <local:CustomAppLoader  />
+                   Margin="10" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="90">
+                <local:CustomAppLoader  />
             </Frame>
 
         </Grid>
