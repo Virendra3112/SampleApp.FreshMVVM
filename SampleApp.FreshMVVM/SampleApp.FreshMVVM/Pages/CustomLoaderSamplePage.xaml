@@ -8,14 +8,20 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="3*"/>
+                <RowDefinition Height="5*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
-            <Frame Grid.Row="0" CornerRadius="20" BackgroundColor="LightPink"
+            <Frame Grid.Row="0" CornerRadius="20" BackgroundColor="White"
                    Margin="10" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="90">
                 <local:CustomAppLoader  />
+            </Frame>
+            
+            
+            <Frame Grid.Row="1" CornerRadius="20" BackgroundColor="White"
+                   Margin="10" HeightRequest="30" HorizontalOptions="CenterAndExpand" WidthRequest="400">
+                <local:CustomAppLoaderTwo  />
             </Frame>
 
         </Grid>
