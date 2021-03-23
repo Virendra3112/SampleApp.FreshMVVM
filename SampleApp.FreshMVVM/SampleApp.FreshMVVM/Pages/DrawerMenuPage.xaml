@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="_" IconImageSource="menu" BackgroundColor="Black"
+             Title="_" IconImageSource="menu" BackgroundColor="White"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SampleApp.FreshMVVM.Pages.DrawerMenuPage">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" BackgroundColor="Black">
+        <StackLayout Orientation="Vertical" >
             <ScrollView VerticalOptions="Start">
-                <StackLayout Orientation="Vertical" BackgroundColor="Black">
+                <StackLayout Orientation="Vertical" >
                     <StackLayout Orientation="Vertical">
                         <StackLayout Orientation="Horizontal" Margin="5,50,5,5" BackgroundColor="White" HorizontalOptions="FillAndExpand">
                             <Image Source="icon.png" BackgroundColor="Transparent" HeightRequest="100" WidthRequest="100" VerticalOptions="Center" />
 
                             <StackLayout Orientation="Vertical">
-                                <Label Text="Panda Profile" HorizontalTextAlignment="Start" FontSize="Large" 
+                                <Label Text="Hello, Virendra" HorizontalTextAlignment="Start" FontSize="Large" 
                                        Margin="2,0,0,0" HorizontalOptions="Start" VerticalOptions="EndAndExpand" TextColor="Red"/>
                                 <Label Text="Xamarin Forms" HorizontalTextAlignment="Start" 
                                        FontSize="Small" Margin="2,0,0,0" HorizontalOptions="Start" VerticalOptions="StartAndExpand"
@@ -20,22 +21,22 @@
                             </StackLayout>
                         </StackLayout>
 
-                        <StackLayout BackgroundColor="Black" MinimumHeightRequest="1" 
-                                     Orientation="Vertical" HeightRequest="1" HorizontalOptions="FillAndExpand">
-                            <Label Text="test" FontSize="1" TextColor="White" 
-                                   BackgroundColor="Black" HorizontalOptions="CenterAndExpand" />
-                        </StackLayout>
+                        
+                        <BoxView BackgroundColor="Black" MinimumHeightRequest="1" 
+                                      HeightRequest="1" HorizontalOptions="FillAndExpand">                           
+                        </BoxView>
                     </StackLayout>
 
                     <ListView x:Name="navigationList" Margin="0" SeparatorVisibility="Default"
+                              BackgroundColor="AliceBlue"
+                              SeparatorColor="Black" SelectionMode="Single"
                               ItemsSource="{Binding MenuList}"
                                 VerticalOptions="Start">
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
-VerticalOptions="Center">
+                                    <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
 
                                         <Image Source="icon.png" HorizontalOptions="Start"
                                             VerticalOptions="Center" Margin="15,0,5,2"
@@ -44,7 +45,7 @@ VerticalOptions="Center">
                                         <Label Text="{Binding Name}" FontAttributes="Bold"
                                                 FontSize="Default" Margin="10,0,5,2"
                                                 HorizontalOptions="Start" VerticalOptions="Center"
-                                                TextColor="White"/>           
+                                                TextColor="Black"/>           
 
                                     </StackLayout>
                                 </ViewCell>

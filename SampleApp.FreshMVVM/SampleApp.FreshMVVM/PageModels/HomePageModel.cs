@@ -1,9 +1,6 @@
-﻿using SampleApp.FreshMVVM.CustomControls;
-using SampleApp.FreshMVVM.Models;
+﻿using SampleApp.FreshMVVM.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
