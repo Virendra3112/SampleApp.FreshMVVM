@@ -3,7 +3,6 @@ using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.PageModels;
 using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SampleApp.FreshMVVM
 {

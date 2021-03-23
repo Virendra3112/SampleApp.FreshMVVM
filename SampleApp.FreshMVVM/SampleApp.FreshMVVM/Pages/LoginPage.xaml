@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SampleApp.FreshMVVM.Pages.LoginPage">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
@@ -8,7 +10,7 @@
         </OnPlatform>
     </ContentPage.Padding>
 
-    <Grid
+    <Grid BackgroundColor="#121212"
         RowSpacing="0"
         ColumnSpacing="0">
 
@@ -20,7 +22,7 @@
 
         <BoxView 
             Grid.Row="0"
-            BackgroundColor="#00CCD6" />
+            />
 
         <Image
             Grid.Row="0"
@@ -32,40 +34,44 @@
 
         <Label 
             Grid.Row="1"
-            Text="LOGIN"
-            FontSize="Large"
+            Text="LOGIN" TextColor="White"
+            FontSize="Large" FontAttributes="Bold"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
 
-        <StackLayout                
-            Grid.Row="2"
+        <yummy:PancakeView
+                        Margin="16" BackgroundColor="#1e1e1e"            
+                        CornerRadius="0,45,45,45"
+                        Grid.Row="2" Padding="0,10,0,0"
+                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout               
+            
             VerticalOptions="Fill"
             HorizontalOptions="Center"
             Spacing="15">
 
-            <StackLayout HorizontalOptions="Center" Spacing="5">
-                <Label 
-                    Text="Email:" />
-                <Entry 
+                <StackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label TextColor="White" Text="Email:" />
+                    <Entry 
                     Text="{Binding Email}" 
                     Keyboard="Email"
                     WidthRequest="300" />
-            </StackLayout>
+                </StackLayout>
 
-            <StackLayout HorizontalOptions="Center" Spacing="5">
-                <Label 
-                    Text="Password:" />
-                <Entry 
+                <StackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label TextColor="White" Text="Password:" />
+                    <Entry 
                     Text="{Binding Password}"
                     WidthRequest="300"
                     IsPassword="True" />
+                </StackLayout>
+
+                <Button  Text="Login" BackgroundColor="#c38fff" TextColor="White" Command="{Binding LoginCommand}" />
+
             </StackLayout>
 
-            <Button  Text="Login" Command="{Binding LoginCommand}" />
-        </StackLayout>
+        </yummy:PancakeView>
 
 
-        
-       
     </Grid>
 </ContentPage>
