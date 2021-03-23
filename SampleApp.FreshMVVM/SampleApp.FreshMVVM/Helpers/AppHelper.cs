@@ -28,7 +28,7 @@ namespace SampleApp.FreshMVVM.Helpers
             var animalCard = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
             var basicNavigationContainer = new NavigationPage(animalCard)
             {
-                //BarBackgroundColor = (Color)Application.Current.Resources["secondaryColor"],
+                BarBackgroundColor = Color.FromHex("#121212"),
                 BarTextColor = (Color.White)
             };
             masterDetailNav.Master = hamburgerMenuPage;
