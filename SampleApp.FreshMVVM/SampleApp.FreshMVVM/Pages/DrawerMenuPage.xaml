@@ -29,6 +29,7 @@
                               BackgroundColor="#192734"
                               SeparatorColor="#8899a6" SelectionMode="Single"
                               ItemsSource="{Binding MenuList}"
+                              SelectedItem="{Binding MenuSelectedItem}" 
                                 VerticalOptions="Start">
 
                         <ListView.ItemTemplate>
