@@ -1,4 +1,5 @@
-﻿using SampleApp.FreshMVVM.Models;
+﻿using SampleApp.FreshMVVM.Helpers;
+using SampleApp.FreshMVVM.Models;
 using System;
 using System.Collections.ObjectModel;
 
@@ -62,10 +63,18 @@ namespace SampleApp.FreshMVVM.PageModels
 
         private void NavigateToPage(MenuItems selectedItem)
         {
-            if (selectedItem.Name == "CustomLoader")
-                CoreMethods.PushPageModel<CustomLoaderSamplePageModel>();
+            switch (selectedItem.Name)
+            {
+                case "Home":
+                    AppHelper.MenuIsPresented = false;
+                    break;
 
+                case "CustomLoader":
+                    CoreMethods.PushPageModel<CustomLoaderSamplePageModel>();
+                    AppHelper.MenuIsPresented = false;
 
+                    break;
+            }
         }
     }
 }

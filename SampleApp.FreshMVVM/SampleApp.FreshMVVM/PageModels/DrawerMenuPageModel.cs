@@ -62,7 +62,7 @@ namespace SampleApp.FreshMVVM.PageModels
 
         private async void NavigateToPage(MenuItems menuItem)
         {
-            switch(menuItem.Name)
+            switch (menuItem.Name)
             {
                 case "Settings":
                     await CoreMethods.PushPageModel<SettingsPageModel>();
