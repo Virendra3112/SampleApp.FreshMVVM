@@ -1,4 +1,5 @@
-﻿using SampleApp.FreshMVVM.Models;
+﻿using SampleApp.FreshMVVM.Helpers;
+using SampleApp.FreshMVVM.Models;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -66,6 +67,7 @@ namespace SampleApp.FreshMVVM.PageModels
             {
                 case "Settings":
                     await CoreMethods.PushPageModel<SettingsPageModel>();
+                    AppHelper.MenuIsPresented = false;
                     break;
             }
         }
