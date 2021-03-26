@@ -124,7 +124,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleApp.FreshMVVM\SampleApp.FreshMVVM.csproj">
       <Project>{F4940775-3341-4F3B-8C8C-ADDDEFA8EDD4}</Project>
