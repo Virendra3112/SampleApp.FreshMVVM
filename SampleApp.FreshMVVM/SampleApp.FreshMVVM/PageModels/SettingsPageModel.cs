@@ -1,4 +1,5 @@
-﻿using SampleApp.FreshMVVM.Models;
+﻿using SampleApp.FreshMVVM.Helpers;
+using SampleApp.FreshMVVM.Models;
 using System;
 using System.Collections.ObjectModel;
 
@@ -51,9 +52,19 @@ namespace SampleApp.FreshMVVM.PageModels
         {
             base.ViewIsAppearing(sender, e);
 
-            _settingsMenuList = new ObservableCollection<MenuItems>();
+            try
+            {
+                SettingsMenuList = new ObservableCollection<MenuItems>();
 
-            _settingsMenuList.Add(new MenuItems { Id = 1, Name = "Set Theme" });
+                //SettingsMenuList.Add("Set Theme");
+                SettingsMenuList.Add(new MenuItems { Id = 1, Name = "Select Theme" });
+                SettingsMenuList.Add(new MenuItems { Id = 2, Name = "Select Language" });
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         protected override void ViewIsDisappearing(object sender, EventArgs e)
