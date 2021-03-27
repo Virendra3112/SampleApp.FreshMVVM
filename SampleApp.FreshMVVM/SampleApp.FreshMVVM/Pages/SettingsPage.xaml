@@ -1,12 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SampleApp.FreshMVVM.Pages.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Settings page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <CollectionView x:Name="collectionList" Margin="10"
+                            ItemsSource="{Binding SettingsMenuList}"  
+                            SelectedItem="{Binding SelectedSettingsItem}" 
+                            SelectionMode="Single"
+                            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <yummy:PancakeView
+                        Margin="16" BackgroundColor="#192734"
+                        CornerRadius="30,30,30,30"
+                        HeightRequest="50"
+                        VerticalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BackgroundColor="White"  CornerRadius="5" Padding="10" Margin="10">
+                                    <Image    
+                                   Source="icon"    
+                                   Aspect="AspectFill"    
+                                   HeightRequest="50"    
+                                   WidthRequest="50" />
+                                </Frame>
+
+                                <Label Text="{Binding Name}" VerticalTextAlignment="Center" 
+                                       FontSize="18" TextColor="White"
+                                       FontAttributes="Bold" />
+
+                            </StackLayout>
+                        </yummy:PancakeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
