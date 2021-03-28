@@ -13,20 +13,40 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                        <yummy:PancakeView Padding="20"
+                            <yummy:PancakeView Padding="20"
                         Margin="10" BackgroundColor="#192734"
                         CornerRadius="12,12,12,12"
                         VerticalOptions="CenterAndExpand">
-                            <StackLayout Orientation="Horizontal">
-                                
-                                <Label Text="{Binding Name}" VerticalTextAlignment="Center" 
-                                       FontSize="18" TextColor="White"
-                                       FontAttributes="Bold" />
+                                <StackLayout Orientation="Horizontal" Spacing="0">
 
-                                <Switch HorizontalOptions="EndAndExpand" IsToggled="False"/>
+                                    <yummy:PancakeView Padding="15"
+                                            Margin="0,0,10,0" BackgroundColor="Red"
+                                            CornerRadius="10" WidthRequest="20"
+                                            VerticalOptions="CenterAndExpand">  
+                                        <Label HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold" TextColor="White"
+                                            HorizontalTextAlignment="Center" FontSize="Medium"
+                                            Text="{Binding MenuName[0]}"/>
+
+                                    </yummy:PancakeView>
+
+                                    <Label Text="{Binding MenuName}" VerticalTextAlignment="Center" 
+                                           FontSize="Medium" TextColor="White"
+                                           FontAttributes="Bold" />
+
+                                    <!--<Label VerticalTextAlignment="Center" 
+                                       FontSize="Micro" TextColor="White"
+                                        >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Current setting : "/>
+                                                <Span Text="{Binding CurrentMenuSetting}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>-->
 
                                 </StackLayout>
-                        </yummy:PancakeView>
+                            </yummy:PancakeView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
