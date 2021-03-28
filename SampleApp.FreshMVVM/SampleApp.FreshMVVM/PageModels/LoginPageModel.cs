@@ -1,7 +1,6 @@
 ﻿using SampleApp.FreshMVVM.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -30,9 +29,22 @@ namespace SampleApp.FreshMVVM.PageModels
             LoginCommand = new Command(OnLoginButtonClicked);
         }
 
-        private void OnLoginButtonClicked(object obj)
+        private async void OnLoginButtonClicked(object obj)
         {
-            AppHelper.InitializeAndShowMasterDetailPage();
+
+            try
+            {
+                IsBusy = true;
+
+                await Task.Delay(2000);
+                AppHelper.InitializeAndShowMasterDetailPage();
+
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            { IsBusy = false; }
         }
     }
 }

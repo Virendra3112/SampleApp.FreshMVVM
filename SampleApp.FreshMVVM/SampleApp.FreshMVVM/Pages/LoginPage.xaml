@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:resources="clr-namespace:SampleApp.FreshMVVM.Resources"
              x:Class="SampleApp.FreshMVVM.Pages.LoginPage">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
@@ -34,7 +35,7 @@
 
         <Label 
             Grid.Row="1"
-            Text="LOGIN" TextColor="White"
+            Text="{x:Static resources:AppResources.LoginBtn_label}" TextColor="White"
             FontSize="Large" FontAttributes="Bold"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
@@ -51,7 +52,7 @@
             Spacing="15">
 
                 <StackLayout HorizontalOptions="Center" Spacing="5">
-                    <Label TextColor="White" Text="Email:" />
+                    <Label TextColor="White" Text="{x:Static resources:AppResources.Email_label}" />
                     <Entry 
                     Text="{Binding Email}" 
                     Keyboard="Email"
@@ -59,14 +60,14 @@
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Center" Spacing="5">
-                    <Label TextColor="White" Text="Password:" />
+                    <Label TextColor="White" Text="{x:Static resources:AppResources.Password_label}" />
                     <Entry 
                     Text="{Binding Password}"
                     WidthRequest="300"
                     IsPassword="True" />
                 </StackLayout>
 
-                <Button  Text="Login" BackgroundColor="#1a1a1a" TextColor="White"
+                <Button  Text="{x:Static resources:AppResources.LoginBtn_label}" BackgroundColor="#1a1a1a" TextColor="White"
                          BorderColor="White" BorderWidth="1" CornerRadius="15"
                          Command="{Binding LoginCommand}" />
 
