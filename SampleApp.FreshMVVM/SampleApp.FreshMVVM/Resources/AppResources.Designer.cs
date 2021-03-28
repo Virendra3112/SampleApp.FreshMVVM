@@ -70,6 +70,24 @@ namespace SampleApp.FreshMVVM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string ButtonCancel {
+            get {
+                return ResourceManager.GetString("ButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string ButtonOk {
+            get {
+                return ResourceManager.GetString("ButtonOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email : .
         /// </summary>
         internal static string Email_label {
@@ -84,6 +102,24 @@ namespace SampleApp.FreshMVVM.Resources {
         internal static string LoginBtn_label {
             get {
                 return ResourceManager.GetString("LoginBtn_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to logout ?.
+        /// </summary>
+        internal static string LogoutMessage {
+            get {
+                return ResourceManager.GetString("LogoutMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string LogoutTitle {
+            get {
+                return ResourceManager.GetString("LogoutTitle", resourceCulture);
             }
         }
         

@@ -120,11 +120,23 @@
   <data name="AppName" xml:space="preserve">
     <value>FreshMVVMDemo</value>
   </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
   <data name="Email_label" xml:space="preserve">
     <value>Email : </value>
   </data>
   <data name="LoginBtn_label" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>Do you want to logout ?</value>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="Password_label" xml:space="preserve">
     <value>Password : </value>
