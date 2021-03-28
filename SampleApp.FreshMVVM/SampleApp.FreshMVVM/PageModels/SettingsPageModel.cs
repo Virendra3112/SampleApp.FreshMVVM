@@ -7,8 +7,8 @@ namespace SampleApp.FreshMVVM.PageModels
 {
     public class SettingsPageModel : BasePageModel
     {
-        private ObservableCollection<MenuItems> _settingsMenuList;
-        public ObservableCollection<MenuItems> SettingsMenuList
+        private ObservableCollection<SettingsMenuItems> _settingsMenuList;
+        public ObservableCollection<SettingsMenuItems> SettingsMenuList
         {
             get
             {
@@ -23,8 +23,8 @@ namespace SampleApp.FreshMVVM.PageModels
 
 
 
-        private MenuItems _selectedSettingsItem = null;
-        public MenuItems SelectedSettingsItem
+        private SettingsMenuItems _selectedSettingsItem = null;
+        public SettingsMenuItems SelectedSettingsItem
         {
             get { return _selectedSettingsItem; }
             set
@@ -54,17 +54,18 @@ namespace SampleApp.FreshMVVM.PageModels
 
             try
             {
-                SettingsMenuList = new ObservableCollection<MenuItems>();
+                SettingsMenuList = new ObservableCollection<SettingsMenuItems>();
 
-                //SettingsMenuList.Add("Set Theme");
-                SettingsMenuList.Add(new MenuItems { Id = 1, Name = "Select Theme" });
-                SettingsMenuList.Add(new MenuItems { Id = 2, Name = "Select Language" });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 1, MenuName = "Theme" });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 2, MenuName = "Language" });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 3, MenuName = "Profile" });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 4, MenuName = "Security" });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 5, MenuName = "Logout" });
             }
             catch (Exception ex)
             {
 
             }
-
         }
 
         protected override void ViewIsDisappearing(object sender, EventArgs e)
@@ -72,8 +73,18 @@ namespace SampleApp.FreshMVVM.PageModels
             base.ViewIsDisappearing(sender, e);
         }
 
-        private void ExecuteOperation(MenuItems menuItems)
+        private void ExecuteOperation(SettingsMenuItems menuItems)
         {
+            switch (menuItems.MenuName)
+            {
+                case "Theme":
+
+                    break;
+
+                case "Language":
+
+                    break;
+            }
 
         }
     }
