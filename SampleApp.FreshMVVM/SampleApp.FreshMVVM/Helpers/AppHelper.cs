@@ -24,15 +24,15 @@ namespace SampleApp.FreshMVVM.Helpers
         {
             masterDetailNav = new FreshMasterDetailNavigationContainer();
 
-            var hamburgerMenuPage = FreshPageModelResolver.ResolvePageModel<DrawerMenuPageModel>();
-            var animalCard = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
-            var basicNavigationContainer = new NavigationPage(animalCard)
+            var drawerMenuPage = FreshPageModelResolver.ResolvePageModel<DrawerMenuPageModel>();
+            var homePageModel = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
+            var navContainer = new NavigationPage(homePageModel)
             {
                 BarBackgroundColor = Color.FromHex("#121212"),
                 BarTextColor = (Color.White)
             };
-            masterDetailNav.Master = hamburgerMenuPage;
-            masterDetailNav.Detail = basicNavigationContainer;
+            masterDetailNav.Master = drawerMenuPage;
+            masterDetailNav.Detail = navContainer;
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
