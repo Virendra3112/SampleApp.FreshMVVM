@@ -1,13 +1,19 @@
 ﻿using FreshMvvm;
 using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.PageModels;
+using SampleApp.FreshMVVM.Resources;
 using System;
+using System.Globalization;
+using System.Linq;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM
 {
     public partial class App : Application
     {
+        private CultureInfo language;
+
         public App()
         {
             try
@@ -28,6 +34,12 @@ namespace SampleApp.FreshMVVM
 
                 else
                 {
+                    language = CultureInfo.GetCultureInfo("en");
+                    Thread.CurrentThread.CurrentUICulture = language;
+                    AppResources.Culture = language;
+
+                    //save current language
+
                     AppHelper.InitializeAndShowMasterDetailPage();
                 }
             }
