@@ -53,5 +53,17 @@ namespace SampleApp.FreshMVVM.Helpers
                 Settings.AddOrUpdateValue(nameof(CurrentSecurity), value);
             }
         }
+        
+        public static string CurrentTheme
+        {
+            get
+            {
+                return Settings.GetValueOrDefault(nameof(CurrentTheme), DefaultUserObjectId);
+            }
+            set
+            {
+                Settings.AddOrUpdateValue(nameof(CurrentTheme), value);
+            }
+        }
     }
 }
