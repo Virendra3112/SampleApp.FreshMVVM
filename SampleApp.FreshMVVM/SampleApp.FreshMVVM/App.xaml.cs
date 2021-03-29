@@ -30,6 +30,11 @@ namespace SampleApp.FreshMVVM
                 if (!AppSettings.IsUserLoggedIn)
                 {
                     MainPage = loginContainer;
+
+                    //Todo
+                    //language = CultureInfo.GetCultureInfo(AppSettings.CurrentLanguage);
+                    //Thread.CurrentThread.CurrentUICulture = language;
+                    //AppResources.Culture = language;
                 }
 
                 else
