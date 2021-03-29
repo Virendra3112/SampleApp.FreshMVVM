@@ -1,8 +1,10 @@
-﻿using SampleApp.FreshMVVM.Models;
+﻿using SampleApp.FreshMVVM.Helpers;
+using SampleApp.FreshMVVM.Models;
 using SampleApp.FreshMVVM.Models.Enum;
 using SampleApp.FreshMVVM.Resources;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
@@ -74,7 +76,7 @@ namespace SampleApp.FreshMVVM.PageModels
             base.ViewIsDisappearing(sender, e);
         }
 
-        private async System.Threading.Tasks.Task ExecuteOperationAsync(SettingsMenuItems menuItems)
+        private async Task ExecuteOperationAsync(SettingsMenuItems menuItems)
         {
             try
             {
@@ -88,6 +90,9 @@ namespace SampleApp.FreshMVVM.PageModels
                     case "Language":
                         //Todo: Select app languagte
 
+                        //var language = CultureInfo.GetCultures(CultureTypes.NeutralCultures).ToList().First(element => element.EnglishName.Contains(picker.SelectedItem.ToString())); ;
+                        //Thread.CurrentThread.CurrentUICulture = language;
+                        //AppResources.Culture = language;
                         break;
 
                     case "Profile":
@@ -104,6 +109,9 @@ namespace SampleApp.FreshMVVM.PageModels
                             if (await CoreMethods.DisplayAlert(AppResources.LogoutTitle, AppResources.LogoutMessage, AppResources.ButtonOk, AppResources.ButtonCancel))
                             {
                                 CoreMethods.SwitchOutRootNavigation("login");
+                                AppSettings.IsUserLoggedIn = false;
+                                AppSettings.CurrentLanguage = "en";
+                                AppSettings.CurrentSecurity = null;
                             }
                         }
                         break;
