@@ -5,37 +5,38 @@
              Title="Settings"  BackgroundColor="#121212"
              x:Class="SampleApp.FreshMVVM.Pages.SettingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="collectionList" Margin="10"
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ListView x:Name="collectionList" Margin="10"
                       ItemsSource="{Binding SettingsMenuList}"
                       SelectedItem="{Binding SelectedSettingsItem}"
                       HasUnevenRows="True"
                             >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <yummy:PancakeView Padding="20"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <yummy:PancakeView Padding="20"
                         Margin="10" BackgroundColor="#192734"
                         CornerRadius="12,12,12,12"
                         VerticalOptions="CenterAndExpand">
-                                <StackLayout Orientation="Horizontal" Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="0">
 
-                                    <yummy:PancakeView Padding="15"
+                                        <yummy:PancakeView Padding="15"
                                             Margin="0,0,10,0" BackgroundColor="Red"
                                             CornerRadius="10" WidthRequest="20"
-                                            VerticalOptions="CenterAndExpand">  
-                                        <Label HorizontalOptions="CenterAndExpand"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label HorizontalOptions="CenterAndExpand"
                                                FontAttributes="Bold" TextColor="White"
                                             HorizontalTextAlignment="Center" FontSize="Medium"
                                             Text="{Binding MenuName[0]}"/>
 
-                                    </yummy:PancakeView>
+                                        </yummy:PancakeView>
 
-                                    <Label Text="{Binding MenuName}" VerticalTextAlignment="Center" 
+                                        <Label Text="{Binding MenuName}" VerticalTextAlignment="Center" 
                                            FontSize="Medium" TextColor="White"
                                            FontAttributes="Bold" />
 
-                                    <!--<Label VerticalTextAlignment="Center" 
+                                        <!--<Label VerticalTextAlignment="Center" 
                                        FontSize="Micro" TextColor="White"
                                         >
                                         <Label.FormattedText>
@@ -46,12 +47,21 @@
                                         </Label.FormattedText>
                                     </Label>-->
 
-                                </StackLayout>
-                            </yummy:PancakeView>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                                    </StackLayout>
+                                </yummy:PancakeView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+            <!-- Select Language -->
+            
+            <StackLayout AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,300,300">
+
+
+
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
