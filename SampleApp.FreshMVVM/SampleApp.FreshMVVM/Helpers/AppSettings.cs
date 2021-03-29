@@ -29,5 +29,29 @@ namespace SampleApp.FreshMVVM.Helpers
                 Settings.AddOrUpdateValue(nameof(IsUserLoggedIn), value);
             }
         }
+
+        public static string CurrentLanguage
+        {
+            get
+            {
+                return Settings.GetValueOrDefault(nameof(CurrentLanguage), DefaultUserObjectId);
+            }
+            set
+            {
+                Settings.AddOrUpdateValue(nameof(CurrentLanguage), value);
+            }
+        } 
+        
+        public static string CurrentSecurity
+        {
+            get
+            {
+                return Settings.GetValueOrDefault(nameof(CurrentSecurity), DefaultUserObjectId);
+            }
+            set
+            {
+                Settings.AddOrUpdateValue(nameof(CurrentSecurity), value);
+            }
+        }
     }
 }
