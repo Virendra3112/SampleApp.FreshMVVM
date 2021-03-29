@@ -8,6 +8,7 @@
         <StackLayout>
             <ListView x:Name="collectionList" Margin="10"
                       ItemsSource="{Binding SettingsMenuList}"
+                      SelectedItem="{Binding SelectedSettingsItem}"
                       HasUnevenRows="True"
                             >
                 <ListView.ItemTemplate>

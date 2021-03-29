@@ -1,5 +1,6 @@
-﻿using SampleApp.FreshMVVM.Helpers;
-using SampleApp.FreshMVVM.Models;
+﻿using SampleApp.FreshMVVM.Models;
+using SampleApp.FreshMVVM.Models.Enum;
+using SampleApp.FreshMVVM.Resources;
 using System;
 using System.Collections.ObjectModel;
 
@@ -32,7 +33,7 @@ namespace SampleApp.FreshMVVM.PageModels
                 _selectedSettingsItem = value;
                 if (value != null)
                 {
-                    ExecuteOperation(_selectedSettingsItem);
+                    ExecuteOperationAsync(_selectedSettingsItem);
                 }
 
             }
@@ -56,11 +57,11 @@ namespace SampleApp.FreshMVVM.PageModels
             {
                 SettingsMenuList = new ObservableCollection<SettingsMenuItems>();
 
-                SettingsMenuList.Add(new SettingsMenuItems { Id = 1, MenuName = "Theme" });
-                SettingsMenuList.Add(new SettingsMenuItems { Id = 2, MenuName = "Language" });
-                SettingsMenuList.Add(new SettingsMenuItems { Id = 3, MenuName = "Profile" });
-                SettingsMenuList.Add(new SettingsMenuItems { Id = 4, MenuName = "Security" });
-                SettingsMenuList.Add(new SettingsMenuItems { Id = 5, MenuName = "Logout" });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 1, MenuName = SettingsMenuEnum.Theme });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 2, MenuName = SettingsMenuEnum.Language });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 3, MenuName = SettingsMenuEnum.Profile });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 4, MenuName = SettingsMenuEnum.Security });
+                SettingsMenuList.Add(new SettingsMenuItems { Id = 5, MenuName = SettingsMenuEnum.Logout });
             }
             catch (Exception ex)
             {
@@ -73,17 +74,44 @@ namespace SampleApp.FreshMVVM.PageModels
             base.ViewIsDisappearing(sender, e);
         }
 
-        private void ExecuteOperation(SettingsMenuItems menuItems)
+        private async System.Threading.Tasks.Task ExecuteOperationAsync(SettingsMenuItems menuItems)
         {
-            switch (menuItems.MenuName)
+            try
             {
-                case "Theme":
+                switch (menuItems.MenuName.ToString())
+                {
+                    case "Theme":
+                        //Todo: Select app theme
 
-                    break;
+                        break;
 
-                case "Language":
+                    case "Language":
+                        //Todo: Select app languagte
 
-                    break;
+                        break;
+
+                    case "Profile":
+                        //Todo: Edit user profile page
+
+                        break;
+
+                    case "Security":
+                        //Todo: Add biomatric or face id setting
+                        break;
+
+                    case "Logout":
+                        {
+                            if (await CoreMethods.DisplayAlert(AppResources.LogoutTitle, AppResources.LogoutMessage, AppResources.ButtonOk, AppResources.ButtonCancel))
+                            {
+                                CoreMethods.SwitchOutRootNavigation("login");
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                await CoreMethods.DisplayAlert("Error", ex.Message, AppResources.ButtonOk);
             }
 
         }
