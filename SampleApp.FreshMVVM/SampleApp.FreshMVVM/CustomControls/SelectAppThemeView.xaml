@@ -1,10 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:resources="clr-namespace:SampleApp.FreshMVVM.Resources"
              x:Class="SampleApp.FreshMVVM.CustomControls.SelectAppThemeView">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+        <yummy:PancakeView Padding="15"
+                                            Margin="0,0,10,0" BackgroundColor="White"
+                                            CornerRadius="10" WidthRequest="20"
+                                            VerticalOptions="CenterAndExpand">
+            <StackLayout>
+                <Label HorizontalOptions="StartAndExpand"
+                                               FontAttributes="Bold" TextColor="Black"
+                                            HorizontalTextAlignment="Start" FontSize="Medium"
+                                            Text="Select Language"/>
+
+                <StackLayout Orientation="Vertical">
+                    
+                    <RadioButton Text="Light" TextColor="Red" GroupName="theme" />
+                    <RadioButton Text="Dark" TextColor="Red"  GroupName="theme" />
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" >
+                    <Button HorizontalOptions="FillAndExpand"  Text="{x:Static resources:AppResources.ButtonDone}" BackgroundColor="#1a1a1a" TextColor="White"
+                         BorderColor="White" BorderWidth="1" CornerRadius="15"
+                         Command="{Binding SelectThemeCommand}" />
+
+                    <Button HorizontalOptions="FillAndExpand" Text="{x:Static resources:AppResources.ButtonCancel}" BackgroundColor="#1a1a1a" TextColor="White"
+                         BorderColor="White" BorderWidth="1" CornerRadius="15"
+                         Command="{Binding CancelThemeCommand}" />
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </yummy:PancakeView>
+    </ContentView.Content>
 </ContentView>
