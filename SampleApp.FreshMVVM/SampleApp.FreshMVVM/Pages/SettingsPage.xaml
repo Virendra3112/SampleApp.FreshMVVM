@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:customUI="clr-namespace:SampleApp.FreshMVVM.CustomControls"
              Title="Settings"  BackgroundColor="#121212"
              x:Class="SampleApp.FreshMVVM.Pages.SettingsPage">
     <ContentPage.Content>
@@ -55,13 +56,23 @@
                 </ListView>
             </StackLayout>
             
+            <!-- Select Theme -->
+
+            <StackLayout IsVisible="{Binding IsSelectThemeVisible}" 
+                         AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,300,300">
+
+                <customUI:SelectAppThemeView/>
+
+            </StackLayout>
+
             <!-- Select Language -->
-            
-            <StackLayout AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,300,300">
+
+            <StackLayout IsVisible="false" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,300,300">
 
 
 
             </StackLayout>
+            
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
