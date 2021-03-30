@@ -5,6 +5,8 @@ using SampleApp.FreshMVVM.Resources;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
@@ -25,6 +27,14 @@ namespace SampleApp.FreshMVVM.PageModels
         }
 
 
+        private bool _isSelectThemeVisible;
+        public bool IsSelectThemeVisible
+        {
+            get { return _isSelectThemeVisible; }
+            set { SetPropertyValue(ref _isSelectThemeVisible, value); }
+        }
+
+
 
         private SettingsMenuItems _selectedSettingsItem = null;
         public SettingsMenuItems SelectedSettingsItem
@@ -40,10 +50,16 @@ namespace SampleApp.FreshMVVM.PageModels
 
             }
         }
+        public ICommand SelectThemeCommand { get; set; }
+        public ICommand CancelThemeCommand { get; set; }
+
+
         public SettingsPageModel()
         {
-
+            SelectThemeCommand = new Command(OnThemeSelected);
+            CancelThemeCommand = new Command(OnThemeCancelSelected);
         }
+
 
         public override void Init(object initData)
         {
@@ -84,7 +100,7 @@ namespace SampleApp.FreshMVVM.PageModels
                 {
                     case "Theme":
                         //Todo: Select app theme
-
+                        IsSelectThemeVisible = true;
                         break;
 
                     case "Language":
@@ -123,5 +139,19 @@ namespace SampleApp.FreshMVVM.PageModels
             }
 
         }
+
+        private void OnThemeSelected(object obj)
+        {
+            //set theme
+
+            IsSelectThemeVisible = false;
+
+        }
+
+        private void OnThemeCancelSelected(object obj)
+        {
+            IsSelectThemeVisible = false;
+        }
+
     }
 }
