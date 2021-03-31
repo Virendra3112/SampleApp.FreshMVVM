@@ -20,8 +20,6 @@ namespace SampleApp.FreshMVVM
             {
                 InitializeComponent();
 
-                //MainPage = new MainPage();
-
                 var loginPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<LoginPageModel>();
                 var loginContainer = new FreshNavigationContainer(loginPage, "login");
                 var myPitchListViewContainer = new FreshTabbedNavigationContainer("Main");
@@ -39,6 +37,7 @@ namespace SampleApp.FreshMVVM
 
                 else
                 {
+                    //todo need to test
                     language = CultureInfo.GetCultureInfo("en");
                     Thread.CurrentThread.CurrentUICulture = language;
                     AppResources.Culture = language;
