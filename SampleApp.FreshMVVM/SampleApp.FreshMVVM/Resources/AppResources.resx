@@ -124,7 +124,7 @@
     <value>Cancel</value>
   </data>
   <data name="ButtonDone" xml:space="preserve">
-    <value>Done</value>
+    <value>Done </value>
   </data>
   <data name="ButtonOk" xml:space="preserve">
     <value>Ok</value>
