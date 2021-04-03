@@ -13,8 +13,8 @@
                             >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <yummy:PancakeView
-                        Margin="16" BackgroundColor="#192734"
+                        <yummy:PancakeView 
+                        Margin="16" Padding="0" BackgroundColor="#192734"
                         CornerRadius="32,0,0,32"
                         HeightRequest="50"
                         VerticalOptions="CenterAndExpand">
