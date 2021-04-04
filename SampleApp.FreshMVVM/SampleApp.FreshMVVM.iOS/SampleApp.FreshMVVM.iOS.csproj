@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\AppLocale.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -163,4 +164,5 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />
   </ItemGroup>
+  <ItemGroup />
 </Project>
