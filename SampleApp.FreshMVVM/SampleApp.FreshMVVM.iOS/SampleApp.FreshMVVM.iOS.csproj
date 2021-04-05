@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\AppFileHelper.cs" />
     <Compile Include="CustomRendrers\AppLocale.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
