@@ -26,7 +26,7 @@ namespace SampleApp.FreshMVVM.Helpers
             DependencyService.Get<IAppLocale>().SetLocale(culture);
             AppResources.Culture = culture; 
             Application.Current.Properties["Lang"] = culture.TwoLetterISOLanguageName;
-            //LangResourceLoader.Instance.SetCultureInfo(culture); 
+            LangResourceLoader.Instance.SetCultureInfo(culture); 
         }
     }
 }
