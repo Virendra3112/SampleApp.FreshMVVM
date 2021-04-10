@@ -59,6 +59,13 @@ namespace SampleApp.FreshMVVM.PageModels
             set { SetPropertyValue(ref _currentLangauge, value); }
         }
 
+        private bool _isSelectLanguageVisible;
+        public bool IsSelectLanguageVisible
+        {
+            get { return _isSelectLanguageVisible; }
+            set { SetPropertyValue(ref _isSelectLanguageVisible, value); }
+        }
+
         public ICommand SelectLanguageCommand { get; set; }
         public ICommand SetLanguageCommand { get; set; }
         public ICommand CancelLanguageCommand { get; set; }
