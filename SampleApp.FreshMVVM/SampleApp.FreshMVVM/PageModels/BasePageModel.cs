@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
@@ -28,7 +30,7 @@ namespace SampleApp.FreshMVVM.PageModels
             get { return CrossConnectivity.Current.IsConnected; }
         }
 
-        bool isBusy;      
+        bool isBusy;
         public bool IsBusy
         {
             get
@@ -50,6 +52,17 @@ namespace SampleApp.FreshMVVM.PageModels
             set { SetPropertyValue(ref _pageTitle, value); }
         }
 
+        private string _currentLangauge;
+        public string CurrentLangauge
+        {
+            get { return _currentLangauge; }
+            set { SetPropertyValue(ref _currentLangauge, value); }
+        }
+
+        public ICommand SelectLanguageCommand { get; set; }
+        public ICommand SetLanguageCommand { get; set; }
+        public ICommand CancelLanguageCommand { get; set; }
+
         private void ShowLoading(bool value)
         {
             try
@@ -69,6 +82,11 @@ namespace SampleApp.FreshMVVM.PageModels
         public BasePageModel()
         {
             CheckConnectivity();
+
+            SelectLanguageCommand = new Command(OnSelectlanguageClicked);
+            SetLanguageCommand = new Command(OnSetlanguageClicked);
+            CancelLanguageCommand = new Command(OnCancellanguageClicked);
+
         }
 
         public void CheckConnectivity()
@@ -97,6 +115,22 @@ namespace SampleApp.FreshMVVM.PageModels
             {
             }
         }
+
+
+
+        public void OnSelectlanguageClicked(object obj)
+        {
+
+        }
+        public void OnSetlanguageClicked(object obj)
+        {
+
+        }
+        public void OnCancellanguageClicked(object obj)
+        {
+
+        }
+
 
 
 
