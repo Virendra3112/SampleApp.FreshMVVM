@@ -79,6 +79,15 @@ namespace SampleApp.FreshMVVM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Done .
+        /// </summary>
+        internal static string ButtonDone {
+            get {
+                return ResourceManager.GetString("ButtonDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string ButtonOk {

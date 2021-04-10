@@ -54,7 +54,6 @@
             <CarouselView
         Grid.Row="2"
         CurrentItem="{Binding CurrentTabVm, Mode=TwoWay}"
-        CurrentItemChanged="CarouselView_CurrentItemChanged"
         HorizontalScrollBarVisibility="Never"
         IsScrollAnimated="True"
         IsSwipeEnabled="True"
