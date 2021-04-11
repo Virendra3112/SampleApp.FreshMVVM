@@ -6,19 +6,25 @@ using System.Text;
 
 namespace SampleApp.FreshMVVM.PageModels.Tests
 {
-    [TestFixture()]
+    [TestFixture]
     public class BasePageModelTests
     {
-        [Test()]
+        [Test]
         public void CheckConnectivityTest()
         {
             Assert.Fail();
         }
 
-        [Test()]
+        [Test]
         public void CheckConnectivityTest1()
         {
             throw new NotImplementedException();
+        }
+
+        [Test]
+        public void OnSelectlanguageClickedTest()
+        {
+            Assert.Fail();
         }
     }
 }
