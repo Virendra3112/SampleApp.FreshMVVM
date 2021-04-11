@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using FreshMvvm;
 using Plugin.Connectivity;
+using SampleApp.FreshMVVM.Helpers;
 using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
@@ -65,6 +66,77 @@ namespace SampleApp.FreshMVVM.PageModels
             get { return _isSelectLanguageVisible; }
             set { SetPropertyValue(ref _isSelectLanguageVisible, value); }
         }
+
+        private Page _page;
+        public Page Page
+        {
+            get
+            {
+                return _page;
+            }
+        } 
+        public LangResourceLoader Language
+        {
+            get
+            {
+                return LangResourceLoader.Instance;
+            }
+        }
+
+        private static FlowDirection _flowDirection = Device.FlowDirection;
+        public FlowDirection FlowDirection
+        {
+            get
+            {
+                return _flowDirection;
+            }
+            set
+            {
+                _flowDirection = value;
+                if (_page != null)
+                {
+                    _page.FlowDirection = _flowDirection;
+                }
+                RaisePropertyChanged("FlowDirection");
+            }
+        }
+
+        VisualElement _visualElement;
+        public VisualElement VisualElement
+        {
+            get
+            {
+                return _visualElement;
+            }
+            set
+            {
+                if (_visualElement != value && value != null)
+                {
+                    _visualElement = value;
+                    var p = Page;
+
+                    if (_visualElement is Page page)
+                    {
+                        _page = page;
+                    }
+
+                    if (_visualElement.BindingContext == null)
+                    {
+                        _visualElement.BindingContext = this;
+                    }
+
+                    if (_page != null)
+                    {
+                        _page.FlowDirection = FlowDirection;
+                    }
+
+                    RaisePropertyChanged("VisualElement");
+                }
+            }
+        }
+
+
+
 
         public ICommand SelectLanguageCommand { get; set; }
         public ICommand SetLanguageCommand { get; set; }
@@ -137,9 +209,6 @@ namespace SampleApp.FreshMVVM.PageModels
         {
 
         }
-
-
-
 
         //        #region INotifyPropertyChanged implementation
 
