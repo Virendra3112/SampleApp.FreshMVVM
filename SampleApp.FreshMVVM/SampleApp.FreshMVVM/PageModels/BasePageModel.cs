@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
+using static SampleApp.FreshMVVM.Models.Enum.LanguageEnum;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
@@ -165,6 +166,28 @@ namespace SampleApp.FreshMVVM.PageModels
             SelectLanguageCommand = new Command(OnSelectlanguageClicked);
             SetLanguageCommand = new Command(OnSetlanguageClicked);
             CancelLanguageCommand = new Command(OnCancellanguageClicked);
+
+            if (LangResourceLoader.Instance.CurrentLanguageAbbr == LanguageCode.Arabic)
+            {
+                _flowDirection = FlowDirection.RightToLeft;
+            }
+            else
+            {
+                _flowDirection = FlowDirection.LeftToRight;
+            }
+
+            Language.PropertyChanged += (sender, e) =>
+            {
+                //todo
+                if (Language.CurrentLanguageAbbr == LanguageCode.Arabic)
+                {
+                    FlowDirection = FlowDirection.RightToLeft;
+                }
+                else
+                {
+                    FlowDirection = FlowDirection.LeftToRight;
+                }
+            };
 
         }
 
