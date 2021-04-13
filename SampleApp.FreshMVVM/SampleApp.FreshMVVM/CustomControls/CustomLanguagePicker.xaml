@@ -10,6 +10,7 @@
                 <Picker.Items>
                     <x:String>English</x:String>
                     <x:String>Arabic</x:String>
+                    <x:String>France</x:String>
                 </Picker.Items>
             </Picker>
 

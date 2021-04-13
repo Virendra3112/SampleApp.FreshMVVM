@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
+  <data name="AppName" xml:space="preserve">
+    <value>FreshMVVMDemo</value>
+  </data>
+  <data name="ButtonCancel" xml:space="preserve">
+    <value>يلغي</value>
+  </data>
+  <data name="ButtonDone" xml:space="preserve">
+    <value>منجز</value>
+  </data>
+  <data name="ButtonOk" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="Email_label" xml:space="preserve">
+    <value>بريد إلكتروني:</value>
+  </data>
+  <data name="LoginBtn_label" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>هل ترغب بالخروج ؟</value>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
+  <data name="Password_label" xml:space="preserve">
+    <value>كلمة المرور:</value>
   </data>
 </root>
