@@ -60,7 +60,12 @@ namespace SampleApp.FreshMVVM.PageModels
             get { return _currentLangauge; }
             set { SetPropertyValue(ref _currentLangauge, value); }
         }
-
+        private string _selectedLanguage;
+        public string SelectedLanguage
+        {
+            get { return _selectedLanguage; }
+            set { SetPropertyValue(ref _selectedLanguage, value); }
+        }
         private bool _isSelectLanguageVisible;
         public bool IsSelectLanguageVisible
         {
@@ -167,6 +172,9 @@ namespace SampleApp.FreshMVVM.PageModels
             SetLanguageCommand = new Command(OnSetlanguageClicked);
             CancelLanguageCommand = new Command(OnCancellanguageClicked);
 
+            IsSelectLanguageVisible = false;
+
+
             if (LangResourceLoader.Instance.CurrentLanguageAbbr == LanguageCode.Arabic)
             {
                 _flowDirection = FlowDirection.RightToLeft;
@@ -222,14 +230,19 @@ namespace SampleApp.FreshMVVM.PageModels
 
         public void OnSelectlanguageClicked(object obj)
         {
+            IsSelectLanguageVisible = true;
 
         }
         public void OnSetlanguageClicked(object obj)
         {
+            IsSelectLanguageVisible = false;
+
+            var ss = SelectedLanguage;
 
         }
         public void OnCancellanguageClicked(object obj)
         {
+            IsSelectLanguageVisible = false;
 
         }
 
