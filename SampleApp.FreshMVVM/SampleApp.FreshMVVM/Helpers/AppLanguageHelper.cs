@@ -23,10 +23,10 @@ namespace SampleApp.FreshMVVM.Helpers
 
         public static void UpdateLangauge(CultureInfo culture)
         {
-            DependencyService.Get<IAppLocale>().SetLocale(culture);
-            AppResources.Culture = culture; 
-            Application.Current.Properties["Lang"] = culture.TwoLetterISOLanguageName;
-            LangResourceLoader.Instance.SetCultureInfo(culture); 
+            //DependencyService.Get<IAppLocale>().SetLocale(culture);
+            //AppResources.Culture = culture; 
+            //Application.Current.Properties["Lang"] = culture.TwoLetterISOLanguageName;
+            //LangResourceLoader.Instance.SetCultureInfo(culture); 
         }
     }
 }
