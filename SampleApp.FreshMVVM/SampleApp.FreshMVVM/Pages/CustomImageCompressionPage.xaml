@@ -7,6 +7,10 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="Select Image"
+                    Command="{Binding SelectImageCommand}"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
