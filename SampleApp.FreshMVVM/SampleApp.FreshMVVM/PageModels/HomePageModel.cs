@@ -53,8 +53,9 @@ namespace SampleApp.FreshMVVM.PageModels
 
             MenuList = new ObservableCollection<MenuItems>();
 
-            MenuList.Add(new MenuItems { Id = 1, Name = "CustomLoader" });
-            MenuList.Add(new MenuItems { Id = 2, Name = "CustomTabs" });
+            MenuList.Add(new MenuItems { Id = 1, Name = "Custom Loader" });
+            MenuList.Add(new MenuItems { Id = 2, Name = "Custom Tabs" });
+            MenuList.Add(new MenuItems { Id = 3, Name = "Image Compression" });
         }
 
         protected override void ViewIsDisappearing(object sender, EventArgs e)
@@ -70,14 +71,20 @@ namespace SampleApp.FreshMVVM.PageModels
                     AppHelper.MenuIsPresented = false;
                     break;
 
-                case "CustomLoader":
+                case "Custom Loader":
                     CoreMethods.PushPageModel<CustomLoaderSamplePageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
 
-                case "CustomTabs":
+                case "Custom Tabs":
                     CoreMethods.PushPageModel<CustomScrollableTabsPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+
+                case "Image Compression":
+                    CoreMethods.PushPageModel<CustomImageCompressionPageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
