@@ -5,19 +5,21 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SampleApp.FreshMVVM.Pages.HomePage">
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="10">
             <CollectionView x:Name="collectionList" Margin="10"
                             ItemsSource="{Binding MenuList}"  
                             SelectedItem="{Binding SelectedItem}" 
-                            SelectionMode="Single"
+                            SelectionMode="Single" 
                             >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                            Margin="20">
                         <yummy:PancakeView 
                         Margin="16" Padding="0" BackgroundColor="#192734"
                         CornerRadius="32,0,0,32"
                         HeightRequest="50"
-                        VerticalOptions="CenterAndExpand">
+                        VerticalOptions="FillAndExpand">
                             <StackLayout Orientation="Horizontal">
                                 <Frame BackgroundColor="White"  CornerRadius="5" Padding="10" Margin="10">
                                   <Image    
@@ -33,6 +35,7 @@
 
                             </StackLayout>
                         </yummy:PancakeView>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 
