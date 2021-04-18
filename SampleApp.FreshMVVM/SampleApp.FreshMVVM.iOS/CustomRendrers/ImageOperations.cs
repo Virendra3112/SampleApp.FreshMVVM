@@ -3,6 +3,7 @@ using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.iOS.CustomRendrers;
 using System;
 using System.Drawing;
+using System.IO;
 using UIKit;
 using Xamarin.Forms;
 
@@ -52,7 +53,30 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
 
         public byte[] ConvertToJpg(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (StreamReader streamReader = new StreamReader(path))
+                {
+
+                    using (MemoryStream memoryStream = new MemoryStream())
+                    {
+
+                        byte[] imageBytes = new byte[memoryStream.Length];
+                        memoryStream.Read(imageBytes, 0, imageBytes.Length);
+
+                        UIKit.UIImage uIImage = new UIImage(Foundation.NSData.FromArray(imageBytes));
+
+                        byte[] bytes = uIImage.AsJPEG(0.9f).ToArray();
+
+                        return bytes;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
