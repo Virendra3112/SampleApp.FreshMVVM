@@ -22,12 +22,41 @@ namespace SampleApp.FreshMVVM.Droid.CustomRendrers
                 resizedImage.Compress(Bitmap.CompressFormat.Jpeg, 80, memoryStream);
                 return memoryStream.ToArray();
             }
-
-
-
-
-
         }
+
+        public byte[] ConvertToJpg(string path)
+        {
+            try
+            {
+                using (StreamReader streamReader = new StreamReader(path))
+                {
+                    byte[] imageData = default(byte[]);
+
+                    using (MemoryStream memoryStream = new MemoryStream())
+                    {
+
+                        streamReader.BaseStream.CopyTo(memoryStream);
+                        imageData = memoryStream.ToArray();
+
+
+                        //load bitmap
+                        Android.Graphics.Bitmap bitmap = Android.Graphics.BitmapFactory.DecodeByteArray(imageData, 0, imageData.Length);
+
+                        MemoryStream imageResult = new MemoryStream();
+
+                        bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Jpeg, 80, imageResult);//todo: 
+
+                        return imageResult.ToArray();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
 
 
     }
