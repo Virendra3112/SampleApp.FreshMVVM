@@ -56,7 +56,9 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList.Add(new MenuItems { Id = 1, Name = "Custom Loader" });
             MenuList.Add(new MenuItems { Id = 2, Name = "Custom Tabs" });
             MenuList.Add(new MenuItems { Id = 3, Name = "Image Compression" });
-            MenuList.Add(new MenuItems { Id = 3, Name = "Line Chart" });
+            MenuList.Add(new MenuItems { Id = 4, Name = "Line Chart" });
+            MenuList.Add(new MenuItems { Id = 5, Name = "Ultimate XF Line Chart" });
+
         }
 
         protected override void ViewIsDisappearing(object sender, EventArgs e)
@@ -92,6 +94,12 @@ namespace SampleApp.FreshMVVM.PageModels
 
                 case "Line Chart":
                     CoreMethods.PushPageModel<CustomLineChartPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+
+                case "Ultimate XF Line Chart":
+                    CoreMethods.PushPageModel<SampleChartPageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
