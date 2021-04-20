@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using UltimateXF.iOS;
 
 namespace SampleApp.FreshMVVM.iOS
 {
@@ -23,6 +24,9 @@ namespace SampleApp.FreshMVVM.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            UltimateXFSettup.Initialize();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
