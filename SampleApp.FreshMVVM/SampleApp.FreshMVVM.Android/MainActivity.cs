@@ -1,12 +1,11 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
+//using UltimateXF.Droid;
+
 
 namespace SampleApp.FreshMVVM.Droid
 {
@@ -24,6 +23,9 @@ namespace SampleApp.FreshMVVM.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            //UltimateXFSettup.Initialize(this);
+
 
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             //var ignore = typeof(SvgCachedImage);
