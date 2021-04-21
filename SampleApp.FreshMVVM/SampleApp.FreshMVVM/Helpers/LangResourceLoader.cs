@@ -53,13 +53,18 @@ namespace SampleApp.FreshMVVM.Helpers
         {
             get
             {
-                //if (Application.Current.Properties["Lang"] == null)
-                //    return LanguageCode.English;
+                if (Application.Current.Properties["Lang"] == null)
+                    return LanguageCode.English;
 
-                //if (Application.Current.Properties["Lang"].ToString() == LanguageShortCode.ar.ToString())
-                //{
-                //    return LanguageCode.Arabic;
-                //}
+               else if (Application.Current.Properties["Lang"].ToString() == LanguageShortCode.ar.ToString())
+                {
+                    return LanguageCode.Arabic;
+                }
+
+                else if (Application.Current.Properties["Lang"].ToString() == LanguageShortCode.fr.ToString())
+                {
+                    return LanguageCode.French;
+                }
 
                 return LanguageCode.English;
             }
