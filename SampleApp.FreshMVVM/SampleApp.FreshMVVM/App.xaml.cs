@@ -1,5 +1,6 @@
 ﻿using FreshMvvm;
 using SampleApp.FreshMVVM.Helpers;
+using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.PageModels;
 using SampleApp.FreshMVVM.Resources;
 using System;
@@ -20,10 +21,15 @@ namespace SampleApp.FreshMVVM
             {
                 InitializeComponent();
 
+                //Set application culture by default based on device culture
+                var phoneCulture = DependencyService.Get<IAppLocale>().GetCurrentCultureInfo();
+                AppLanguageHelper.UpdateLangauge(phoneCulture);
+
                 var loginPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<LoginPageModel>();
                 var loginContainer = new FreshNavigationContainer(loginPage, "login");
                 var myPitchListViewContainer = new FreshTabbedNavigationContainer("Main");
 
+                
 
                 if (!AppSettings.IsUserLoggedIn)
                 {
@@ -38,9 +44,9 @@ namespace SampleApp.FreshMVVM
                 else
                 {
                     //todo need to test
-                    language = CultureInfo.GetCultureInfo("en");
-                    Thread.CurrentThread.CurrentUICulture = language;
-                    AppResources.Culture = language;
+                    //language = CultureInfo.GetCultureInfo("en");
+                    //Thread.CurrentThread.CurrentUICulture = language;
+                    //AppResources.Culture = language;
 
                     //save current language
 
