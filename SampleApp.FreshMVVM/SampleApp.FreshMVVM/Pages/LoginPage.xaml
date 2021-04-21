@@ -80,7 +80,7 @@
                     IsPassword="True" />
                 </StackLayout>
 
-                <Button  Text="{x:Static resources:AppResources.LoginBtn_label}" BackgroundColor="#1a1a1a" TextColor="White"
+                    <Button  Text="{Binding Language[LoginBtn_label]}" BackgroundColor="#1a1a1a" TextColor="White"
                          BorderColor="White" BorderWidth="1" CornerRadius="15"
                          Command="{Binding LoginCommand}" />
 
