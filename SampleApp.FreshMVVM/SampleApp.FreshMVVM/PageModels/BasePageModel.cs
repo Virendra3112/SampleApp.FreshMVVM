@@ -239,6 +239,19 @@ namespace SampleApp.FreshMVVM.PageModels
 
             var ss = SelectedLanguage;
 
+            bool isArabic = false;
+            if (Language.CurrentLanguageAbbr == LanguageCode.Arabic)
+                AppLanguageHelper.ChangeLanguage(LanguageShortCode.en);
+            else
+            {
+                AppLanguageHelper.ChangeLanguage(LanguageShortCode.ar);
+                isArabic = true;
+            }
+
+
+
+            //DependencyService.Get<IFileHelper>().SaveUserLanguagePreference(isArabic);
+
         }
         public void OnCancellanguageClicked(object obj)
         {
