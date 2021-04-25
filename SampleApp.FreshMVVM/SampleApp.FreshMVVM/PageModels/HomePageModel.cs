@@ -58,6 +58,7 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList.Add(new MenuItems { Id = 3, Name = "Image Compression" });
             MenuList.Add(new MenuItems { Id = 4, Name = "Line Chart" });
             MenuList.Add(new MenuItems { Id = 5, Name = "Ultimate XF Line Chart" });
+            MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
 
         }
 
@@ -100,6 +101,12 @@ namespace SampleApp.FreshMVVM.PageModels
 
                 case "Ultimate XF Line Chart":
                     CoreMethods.PushPageModel<SampleChartPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+                
+                case "Video Player":
+                    CoreMethods.PushPageModel<SampleVideoPlayerPageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
