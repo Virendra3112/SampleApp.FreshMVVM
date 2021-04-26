@@ -147,4 +147,7 @@
   <data name="Password_label" xml:space="preserve">
     <value>كلمة المرور:</value>
   </data>
+  <data name="SelectLang_Label" xml:space="preserve">
+    <value>اختار اللغة</value>
+  </data>
 </root>

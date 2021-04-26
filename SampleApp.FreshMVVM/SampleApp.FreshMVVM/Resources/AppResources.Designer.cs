@@ -149,5 +149,14 @@ namespace SampleApp.FreshMVVM.Resources {
                 return ResourceManager.GetString("Password_label", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Language.
+        /// </summary>
+        internal static string SelectLang_Label {
+            get {
+                return ResourceManager.GetString("SelectLang_Label", resourceCulture);
+            }
+        }
     }
 }

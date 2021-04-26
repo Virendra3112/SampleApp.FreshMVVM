@@ -147,4 +147,7 @@
   <data name="Password_label" xml:space="preserve">
     <value>Mot de passe:</value>
   </data>
+  <data name="SelectLang_Label" xml:space="preserve">
+    <value>Choisir la langue</value>
+  </data>
 </root>
