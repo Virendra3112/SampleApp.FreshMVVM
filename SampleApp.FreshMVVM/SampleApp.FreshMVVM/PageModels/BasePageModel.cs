@@ -80,7 +80,7 @@ namespace SampleApp.FreshMVVM.PageModels
             {
                 return _page;
             }
-        } 
+        }
         public LangResourceLoader Language
         {
             get
@@ -235,22 +235,21 @@ namespace SampleApp.FreshMVVM.PageModels
         }
         public void OnSetlanguageClicked(object obj)
         {
-            IsSelectLanguageVisible = false;
-
-            var ss = SelectedLanguage;
+            IsSelectLanguageVisible = false;          
 
             bool isArabic = false;
-            if (Language.CurrentLanguageAbbr == LanguageCode.Arabic)
-                AppLanguageHelper.ChangeLanguage(LanguageShortCode.en);
-            else
+            if (SelectedLanguage == LanguageCode.Arabic.ToString())
             {
                 AppLanguageHelper.ChangeLanguage(LanguageShortCode.ar);
                 isArabic = true;
             }
 
+            else if (SelectedLanguage == LanguageCode.French.ToString())
+                AppLanguageHelper.ChangeLanguage(LanguageShortCode.fr);
 
+            else
+                AppLanguageHelper.ChangeLanguage(LanguageShortCode.en);
 
-            //DependencyService.Get<IFileHelper>().SaveUserLanguagePreference(isArabic);
 
         }
         public void OnCancellanguageClicked(object obj)
