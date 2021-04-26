@@ -13,7 +13,7 @@
             <StackLayout BackgroundColor="White" Padding="20">
 
 
-                <Label TextColor="Black" FontSize="Medium" Text="Select Language"/>
+                <Label TextColor="Black" FontSize="Medium" Text="{Binding Language[SelectLang_Label]}"/>
 
                 <Picker TextColor="Black" Title="Select" SelectedItem="{Binding SelectedLanguage}">
                     <Picker.Items>
