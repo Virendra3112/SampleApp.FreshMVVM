@@ -4,6 +4,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms;
+using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
 
 
@@ -14,24 +15,33 @@ namespace SampleApp.FreshMVVM.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+            try
+            {
+                TabLayoutResource = Resource.Layout.Tabbar;
+                ToolbarResource = Resource.Layout.Toolbar;
 
-            base.OnCreate(savedInstanceState);
+                base.OnCreate(savedInstanceState);
 
-            Forms.SetFlags("RadioButton_Experimental");
+                Forms.SetFlags("RadioButton_Experimental");
 
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+                VideoViewRenderer.Init();
 
-            //UltimateXFSettup.Initialize(this);
+                Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+                global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+                //CrossMediaManager.Current.Init(this);
 
-            //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
-            //var ignore = typeof(SvgCachedImage);
-            Acr.UserDialogs.UserDialogs.Init(this);
+                //UltimateXFSettup.Initialize(this);
 
-            LoadApplication(new App());
+                //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+                //var ignore = typeof(SvgCachedImage);
+                Acr.UserDialogs.UserDialogs.Init(this);
+
+                LoadApplication(new App());
+            }
+            catch (System.Exception ex)
+            {
+            }
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
