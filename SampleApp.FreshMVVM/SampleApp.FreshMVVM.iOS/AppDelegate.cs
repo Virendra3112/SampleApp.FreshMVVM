@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using MediaManager;
 using UIKit;
 using UltimateXF.iOS;
 
@@ -26,6 +27,8 @@ namespace SampleApp.FreshMVVM.iOS
             global::Xamarin.Forms.Forms.Init();
 
             UltimateXFSettup.Initialize();
+
+            CrossMediaManager.Current.Init();
 
             LoadApplication(new App());
 
