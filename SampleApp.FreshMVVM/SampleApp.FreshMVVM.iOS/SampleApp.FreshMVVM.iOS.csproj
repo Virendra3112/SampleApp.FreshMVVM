@@ -66,6 +66,7 @@
     <Compile Include="CustomRendrers\AppFileHelper.cs" />
     <Compile Include="CustomRendrers\AppLocale.cs" />
     <Compile Include="CustomRendrers\ImageOperations.cs" />
+    <Compile Include="CustomRendrers\SampleVideoPlayerPageRendrer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
