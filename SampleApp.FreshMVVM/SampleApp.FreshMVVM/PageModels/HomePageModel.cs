@@ -59,6 +59,7 @@ namespace SampleApp.FreshMVVM.PageModels
             //MenuList.Add(new MenuItems { Id = 4, Name = "Line Chart" });//Todo
             MenuList.Add(new MenuItems { Id = 5, Name = "Ultimate XF Line Chart" });
             MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
+            MenuList.Add(new MenuItems { Id = 7, Name = "Sample App Wireframe" });
 
         }
 
@@ -104,9 +105,15 @@ namespace SampleApp.FreshMVVM.PageModels
                     AppHelper.MenuIsPresented = false;
 
                     break;
-                
+
                 case "Video Player":
                     CoreMethods.PushPageModel<SampleVideoPlayerPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+
+                case "Sample App Wireframe":
+                    CoreMethods.PushPageModel<SALoginPageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
