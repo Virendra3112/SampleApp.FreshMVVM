@@ -17,8 +17,8 @@
 
                 <StackLayout Orientation="Vertical">
                     
-                    <RadioButton Text="Light" TextColor="Red" GroupName="theme" />
-                    <RadioButton Text="Dark" TextColor="Red"  GroupName="theme" />
+                    <!--<RadioButton Text="Light" TextColor="Red" GroupName="theme" />
+                    <RadioButton Text="Dark" TextColor="Red"  GroupName="theme" />-->
 
                 </StackLayout>
 

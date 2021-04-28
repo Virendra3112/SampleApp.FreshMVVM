@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using MediaManager;
+//using MediaManager;
 using UIKit;
 using UltimateXF.iOS;
 
@@ -28,7 +28,7 @@ namespace SampleApp.FreshMVVM.iOS
 
             UltimateXFSettup.Initialize();
 
-            CrossMediaManager.Current.Init();
+            //CrossMediaManager.Current.Init();
 
             LoadApplication(new App());
 

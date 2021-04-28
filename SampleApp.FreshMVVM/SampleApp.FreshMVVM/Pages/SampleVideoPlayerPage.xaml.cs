@@ -1,5 +1,5 @@
-﻿using Plugin.MediaManager;
-using Plugin.MediaManager.Abstractions.Enums;
+﻿//using Plugin.MediaManager;
+//using Plugin.MediaManager.Abstractions.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,26 +26,26 @@ namespace SampleApp.FreshMVVM.Pages
             }
         }
 
-        private void PlayPauseButton_Clicked(object sender, EventArgs e)
-        {
+        //private void PlayPauseButton_Clicked(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private async void PlayStop_Clicked(object sender, EventArgs e)
-        {
-            if (PlayPauseButton.Text == "Play")
-            {
-                await CrossMediaManager.Current.Play(VideoEntry.Text, MediaFileType.Video);
+        //private async void PlayStop_Clicked(object sender, EventArgs e)
+        //{
+        //    if (PlayPauseButton.Text == "Play")
+        //    {
+        //        await CrossMediaManager.Current.Play(VideoEntry.Text, MediaFileType.Video);
 
-                PlayPauseButton.Text = "Stop";
-            }
+        //        PlayPauseButton.Text = "Stop";
+        //    }
 
-            else if (PlayPauseButton.Text == "Stop")
-            {
-                await CrossMediaManager.Current.Stop();
+        //    else if (PlayPauseButton.Text == "Stop")
+        //    {
+        //        await CrossMediaManager.Current.Stop();
 
-                PlayPauseButton.Text = "Play";
-            }
-        }
+        //        PlayPauseButton.Text = "Play";
+        //    }
+        //}
     }
 }
