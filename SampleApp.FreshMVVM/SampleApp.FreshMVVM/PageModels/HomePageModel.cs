@@ -54,9 +54,9 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList = new ObservableCollection<MenuItems>();
 
             MenuList.Add(new MenuItems { Id = 1, Name = "Custom Loader" });
-            MenuList.Add(new MenuItems { Id = 2, Name = "Custom Tabs" });
+            //MenuList.Add(new MenuItems { Id = 2, Name = "Custom Tabs" });//Todo
             MenuList.Add(new MenuItems { Id = 3, Name = "Image Compression" });
-            MenuList.Add(new MenuItems { Id = 4, Name = "Line Chart" });
+            //MenuList.Add(new MenuItems { Id = 4, Name = "Line Chart" });//Todo
             MenuList.Add(new MenuItems { Id = 5, Name = "Ultimate XF Line Chart" });
             MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
 
