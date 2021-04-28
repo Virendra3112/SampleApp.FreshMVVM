@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
-             Title="Sample Video Player"
+             Title="Sample Video Player"              
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              x:Class="SampleApp.FreshMVVM.Pages.SampleVideoPlayerPage">
     <ContentPage.Content>
 
-        <StackLayout Margin="20,20" Spacing="20">
+
+        <xct:MediaElement Source="https://sec.ch9.ms/ch9/5d93/a1eab4bf-3288-4faf-81c4-294402a85d93/XamarinShow_mid.mp4"
+                      ShowsPlaybackControls="True"
+                      MediaOpened="OnMediaOpened"
+                      MediaFailed="OnMediaFailed"
+                      MediaEnded="OnMediaEnded"
+                      SeekCompleted="OnSeekCompleted" />
+
+        <!--<StackLayout Margin="20,20" Spacing="20">
            
-            <!--<Entry x:Name="VideoEntry"
+            --><!--<Entry x:Name="VideoEntry"
                Text="https://sec.ch9.ms/ch9/37af/240037cc-e74a-421a-9946-7ce4205d37af/DiAndIocForXamarinForms.mp4" />
 
             <Button x:Name="PlayPauseButton" 
@@ -20,9 +29,9 @@
             <forms:VideoView x:Name="MyVideoView"
                          AspectMode="AspectFit"
                          WidthRequest="320"
-                         HeightRequest="180"/>-->
+                         HeightRequest="180"/>--><!--
 
-        </StackLayout>
+        </StackLayout>-->
 
     </ContentPage.Content>
 </ContentPage>
