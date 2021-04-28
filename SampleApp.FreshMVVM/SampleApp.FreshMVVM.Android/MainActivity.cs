@@ -4,6 +4,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms;
+using SampleApp.FreshMVVM.Pages;
 //using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
 
@@ -36,6 +37,20 @@ namespace SampleApp.FreshMVVM.Droid
                 //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
                 //var ignore = typeof(SvgCachedImage);
                 Acr.UserDialogs.UserDialogs.Init(this);
+
+
+
+                //allowing the device to change the screen orientation based on the rotation 
+                MessagingCenter.Subscribe<SampleVideoPlayerPage>(this, "AllowLandscape", sender =>
+                {
+                    RequestedOrientation = ScreenOrientation.Landscape;
+                });
+
+                //during page close setting back to portrait
+                MessagingCenter.Subscribe<SampleVideoPlayerPage>(this, "PreventLandscape", sender =>
+                {
+                    RequestedOrientation = ScreenOrientation.Portrait;
+                });
 
                 LoadApplication(new App());
             }
