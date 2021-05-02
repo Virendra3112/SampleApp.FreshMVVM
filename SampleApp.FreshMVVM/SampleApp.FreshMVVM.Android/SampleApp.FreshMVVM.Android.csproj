@@ -80,6 +80,9 @@
     <PackageReference Include="SkiaSharp.Views">
       <Version>2.80.2</Version>
     </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>2.80.2</Version>
+    </PackageReference>
     <PackageReference Include="UltimateXF">
       <Version>2.3.2</Version>
     </PackageReference>
