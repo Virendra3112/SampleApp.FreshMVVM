@@ -17,16 +17,43 @@ namespace SampleApp.FreshMVVM.CustomControls
         public CustomStepControl()
         {
             InitializeComponent();
+
+            SkCanvasView.PaintSurface += draw_Circle;
+
         }
 
-        void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        public void draw_Circle(object sender, SKPaintSurfaceEventArgs args)
         {
-            SKImageInfo info = args.Info;
-            SKSurface surface = args.Surface;
-            SKCanvas canvas = surface.Canvas;
+            try
+            {
+                SKImageInfo info = args.Info;
+                SKSurface surface = args.Surface;
+                SKCanvas canvas = surface.Canvas;
 
-            canvas.Clear();
+                canvas.Clear();
 
+                using (SKPaint paint = new SKPaint())
+                {
+                    paint.Style = SKPaintStyle.Stroke;
+                    paint.Color = Color.FromHex("#cb2dec").ToSKColor();
+                    paint.StrokeWidth = 25;
+                    canvas.DrawCircle(new SKPoint(530, 550), 500, paint);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
+
+        //void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        //{
+        //    SKImageInfo info = args.Info;
+        //    SKSurface surface = args.Surface;
+        //    SKCanvas canvas = surface.Canvas;
+
+        //    canvas.Clear();
+
+        //}
     }
 }
