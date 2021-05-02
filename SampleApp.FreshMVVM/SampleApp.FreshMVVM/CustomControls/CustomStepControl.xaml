@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              x:Class="SampleApp.FreshMVVM.CustomControls.CustomStepControl">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <forms:SKCanvasView x:Name="SkCanvasView" 
+HeightRequest="500" 
+WidthRequest="500" 
+VerticalOptions="FillAndExpand" 
+HorizontalOptions="FillAndExpand" />
+    </ContentView.Content>
 </ContentView>
