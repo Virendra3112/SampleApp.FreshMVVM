@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SkiaSharp;
+using SkiaSharp.Views.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,16 @@ namespace SampleApp.FreshMVVM.CustomControls
         public CustomStepControl()
         {
             InitializeComponent();
+        }
+
+        void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
+        {
+            SKImageInfo info = args.Info;
+            SKSurface surface = args.Surface;
+            SKCanvas canvas = surface.Canvas;
+
+            canvas.Clear();
+
         }
     }
 }
