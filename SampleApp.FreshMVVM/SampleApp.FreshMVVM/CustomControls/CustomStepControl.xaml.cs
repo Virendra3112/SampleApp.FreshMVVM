@@ -1,10 +1,6 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,7 +15,6 @@ namespace SampleApp.FreshMVVM.CustomControls
             InitializeComponent();
 
             SkCanvasView.PaintSurface += draw_Circle;
-
         }
 
         public void draw_Circle(object sender, SKPaintSurfaceEventArgs args)
@@ -34,10 +29,10 @@ namespace SampleApp.FreshMVVM.CustomControls
 
                 using (SKPaint paint = new SKPaint())
                 {
-                    paint.Style = SKPaintStyle.Stroke;
+                    paint.Style = SKPaintStyle.StrokeAndFill;
                     paint.Color = Color.FromHex("#cb2dec").ToSKColor();
                     paint.StrokeWidth = 25;
-                    canvas.DrawCircle(new SKPoint(530, 550), 500, paint);
+                    canvas.DrawCircle(new SKPoint(530, 550), 150, paint);
                 }
             }
             catch (Exception ex)

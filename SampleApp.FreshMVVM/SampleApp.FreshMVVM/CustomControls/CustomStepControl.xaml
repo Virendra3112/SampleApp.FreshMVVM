@@ -4,9 +4,9 @@
              xmlns:forms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              x:Class="SampleApp.FreshMVVM.CustomControls.CustomStepControl">
     <ContentView.Content>
-        <forms:SKCanvasView x:Name="SkCanvasView" 
-HeightRequest="500" 
-WidthRequest="500" 
+        <forms:SKCanvasView x:Name="SkCanvasView"  BackgroundColor="Yellow"
+HeightRequest="300" 
+WidthRequest="300" 
 VerticalOptions="FillAndExpand" 
 HorizontalOptions="FillAndExpand" />
     </ContentView.Content>
