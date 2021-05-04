@@ -1,4 +1,6 @@
-﻿namespace SampleApp.FreshMVVM.Interfaces
+﻿using SampleApp.FreshMVVM.Models;
+
+namespace SampleApp.FreshMVVM.Interfaces
 {
     public interface IImageOperations
     {
@@ -6,7 +8,7 @@
 
         byte[] ConvertToJpg(string path);
 
-        void GetImageData(string fileName);
+        ImageDataModel GetImageData(string fileName);
 
         void SaveImageToStorage(byte[] imageData, string fileName);
     }
