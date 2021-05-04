@@ -57,6 +57,16 @@ namespace SampleApp.FreshMVVM.Droid.CustomRendrers
             }
         }
 
+        public void GetImageData(string fileName)
+        {
+
+        }
+
+        public void SaveImageToStorage(byte[] imageData, string fileName)
+        {
+
+        }
+
 
 
     }

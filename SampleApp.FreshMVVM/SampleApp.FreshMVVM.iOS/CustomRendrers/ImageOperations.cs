@@ -78,5 +78,15 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
                 return null;
             }
         }
+
+       
+       
+        void IImageOperations.GetImageData(string fileName)
+        {
+        }
+
+        void IImageOperations.SaveImageToStorage(byte[] imageData, string fileName)
+        {
+        }
     }
 }
