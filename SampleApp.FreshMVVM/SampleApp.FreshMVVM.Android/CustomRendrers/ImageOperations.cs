@@ -1,6 +1,7 @@
 ﻿using Android.Graphics;
 using SampleApp.FreshMVVM.Droid.CustomRendrers;
 using SampleApp.FreshMVVM.Interfaces;
+using SampleApp.FreshMVVM.Models;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -57,15 +58,29 @@ namespace SampleApp.FreshMVVM.Droid.CustomRendrers
             }
         }
 
-        public void GetImageData(string fileName)
+        public ImageDataModel GetImageData(string fileName)
         {
+            var options = new BitmapFactory.Options
+            {
+                InJustDecodeBounds = true
+            };
+            fileName = fileName.Replace('-', '_').Replace(".png", "");
+            var resId = Forms.Context.Resources.GetIdentifier(
+                fileName, "drawable", Forms.Context.PackageName);
+            BitmapFactory.DecodeResource(
+                Forms.Context.Resources, resId, options);
+
+            return new ImageDataModel { Height = options.OutHeight, Width = options.OutWidth };
 
         }
 
         public void SaveImageToStorage(byte[] imageData, string fileName)
         {
+           
 
         }
+
+
 
 
 
