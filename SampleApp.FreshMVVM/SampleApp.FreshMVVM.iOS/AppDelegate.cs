@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Foundation;
+using LibVLCSharp.Forms.Shared;
 using SampleApp.FreshMVVM.Pages;
 //using MediaManager;
 using UIKit;
@@ -27,6 +28,8 @@ namespace SampleApp.FreshMVVM.iOS
             UltimateXFSettup.Initialize();
 
             //CrossMediaManager.Current.Init();
+
+            LibVLCSharpFormsRenderer.Init();
 
             LoadApplication(new App());
 
