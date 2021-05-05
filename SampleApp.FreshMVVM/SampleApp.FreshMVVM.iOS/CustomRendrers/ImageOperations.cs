@@ -1,6 +1,8 @@
 ﻿using CoreGraphics;
+using Foundation;
 using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.iOS.CustomRendrers;
+using SampleApp.FreshMVVM.Models;
 using System;
 using System.Drawing;
 using System.IO;
@@ -79,14 +81,27 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
             }
         }
 
-       
-       
-        void IImageOperations.GetImageData(string fileName)
+
+
+        public ImageDataModel GetImageData(string fileName)
         {
+            UIImage image = UIImage.LoadFromData(new NSData());
+
+            var result = new Xamarin.Forms.Size((double)image.Size.Width, (double)image.Size.Height);
+
+            return new ImageDataModel { Height = result.Height, Width = result.Width };
         }
 
-        void IImageOperations.SaveImageToStorage(byte[] imageData, string fileName)
+        public void SaveImageToStorage(byte[] imageData, string fileName)
         {
+            var image = new UIImage(NSData.FromArray(imageData));
+
+            image.SaveToPhotosAlbum((img, error) =>
+            {
+                if (error != null)
+                    Console.WriteLine("Saved");
+
+            });
         }
     }
 }
