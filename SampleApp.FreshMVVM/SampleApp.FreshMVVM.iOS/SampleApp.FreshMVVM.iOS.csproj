@@ -148,6 +148,9 @@
     <PackageReference Include="UltimateXF">
       <Version>2.3.2</Version>
     </PackageReference>
+    <PackageReference Include="VideoLAN.LibVLC.iOS">
+      <Version>3.3.10</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>3.2.0</Version>
     </PackageReference>
