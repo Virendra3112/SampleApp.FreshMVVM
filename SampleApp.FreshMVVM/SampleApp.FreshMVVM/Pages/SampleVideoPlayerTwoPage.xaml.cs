@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +10,34 @@ namespace SampleApp.FreshMVVM.Pages
     {
         public SampleVideoPlayerTwoPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            videoView.MediaPlayerChanged += MediaPlayerChanged;           
+        }
+
+      
+        private void MediaPlayerChanged(object sender, System.EventArgs e)
+        {
+            try
+            {
+              
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
     }
 }
