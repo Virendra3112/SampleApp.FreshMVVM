@@ -61,7 +61,8 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
             //MenuList.Add(new MenuItems { Id = 7, Name = "Sample App Wireframe" });
             MenuList.Add(new MenuItems { Id = 8, Name = "Video Player2" });
-            MenuList.Add(new MenuItems { Id = 9, Name = "Sample Stepper" });
+            //MenuList.Add(new MenuItems { Id = 9, Name = "Sample Stepper" });
+            MenuList.Add(new MenuItems { Id = 10, Name = "Video Player3" });
 
 
         }
@@ -129,6 +130,12 @@ namespace SampleApp.FreshMVVM.PageModels
                 
                 case "Sample Stepper":
                     CoreMethods.PushPageModel<SampleStepperPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+
+                case "Video Player3":
+                    CoreMethods.PushPageModel<SampleVideoPlayerThreePageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
