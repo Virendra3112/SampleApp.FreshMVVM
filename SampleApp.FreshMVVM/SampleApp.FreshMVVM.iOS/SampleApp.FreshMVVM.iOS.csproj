@@ -154,6 +154,9 @@
     <PackageReference Include="VideoLAN.LibVLC.iOS">
       <Version>3.3.10</Version>
     </PackageReference>
+    <PackageReference Include="VisioForge.CrossPlatform.Controls.XamarinForms">
+      <Version>1.1.9</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>3.2.0</Version>
     </PackageReference>

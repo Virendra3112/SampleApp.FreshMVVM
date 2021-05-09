@@ -20,6 +20,7 @@
     <PackageReference Include="SkiaSharp.Views" Version="2.80.2" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
     <PackageReference Include="UltimateXF" Version="2.3.2" />
+    <PackageReference Include="VisioForge.CrossPlatform.Controls.XamarinForms" Version="1.1.9" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugin.WebView" Version="2.1.3" />
