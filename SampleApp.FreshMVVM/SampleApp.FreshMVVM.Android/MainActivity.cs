@@ -5,7 +5,7 @@ using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms;
 using SampleApp.FreshMVVM.Pages;
-using LibVLCSharp.Forms.Shared;
+//using LibVLCSharp.Forms.Shared;
 //using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
 
@@ -39,7 +39,7 @@ namespace SampleApp.FreshMVVM.Droid
                 //var ignore = typeof(SvgCachedImage);
                 Acr.UserDialogs.UserDialogs.Init(this);
 
-                LibVLCSharpFormsRenderer.Init();
+                //LibVLCSharpFormsRenderer.Init();
 
 
                 //allowing the device to change the screen orientation based on the rotation 

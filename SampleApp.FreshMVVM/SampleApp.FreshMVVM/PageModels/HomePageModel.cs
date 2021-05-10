@@ -60,7 +60,7 @@ namespace SampleApp.FreshMVVM.PageModels
             MenuList.Add(new MenuItems { Id = 5, Name = "Ultimate XF Line Chart" });
             MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
             //MenuList.Add(new MenuItems { Id = 7, Name = "Sample App Wireframe" });
-            MenuList.Add(new MenuItems { Id = 8, Name = "Video Player2" });
+            //MenuList.Add(new MenuItems { Id = 8, Name = "Video Player2" });
             //MenuList.Add(new MenuItems { Id = 9, Name = "Sample Stepper" });
             MenuList.Add(new MenuItems { Id = 10, Name = "Video Player3" });
 
@@ -122,11 +122,11 @@ namespace SampleApp.FreshMVVM.PageModels
 
                     break;
 
-                case "Video Player2":
-                    CoreMethods.PushPageModel<SampleVideoPlayerTwoPageModel>();
-                    AppHelper.MenuIsPresented = false;
+                //case "Video Player2":
+                //    CoreMethods.PushPageModel<SampleVideoPlayerTwoPageModel>();
+                //    AppHelper.MenuIsPresented = false;
 
-                    break;
+                //    break;
                 
                 case "Sample Stepper":
                     CoreMethods.PushPageModel<SampleStepperPageModel>();

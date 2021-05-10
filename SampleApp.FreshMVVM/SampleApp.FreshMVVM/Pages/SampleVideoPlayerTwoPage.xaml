@@ -4,14 +4,19 @@
             Title="Video Player" BackgroundColor="Yellow"
              x:Class="SampleApp.FreshMVVM.Pages.SampleVideoPlayerTwoPage">
 
-    <ContentPage.Content>
+    <StackLayout>
+        
+    </StackLayout>
+</ContentPage>
+
+<!--<ContentPage.Content>
         <Grid>
             <Grid.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="PanUpdated"/>
             </Grid.GestureRecognizers>
             <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <!--<Button AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
-                        Text="Play" Clicked="Button_Clicked" />-->
+                --><!--<Button AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
+                        Text="Play" Clicked="Button_Clicked" />--><!--
 
                 <vlc:VideoView x:Name="videoView"  AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" InputTransparent="True"/>
                 <Label x:Name="MsgLabel" AbsoluteLayout.LayoutBounds=".5,1,1,.1" AbsoluteLayout.LayoutFlags="All" FontSize="20" LineBreakMode="WordWrap" TextColor="White" />
@@ -20,7 +25,7 @@
 
 
 
-        <!--<Grid>
+        --><!--<Grid>
           
             <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <vlc:VideoView x:Name="videoView" MediaPlayer="{Binding MediaPlayer}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" InputTransparent="True"/>
@@ -30,7 +35,7 @@
                 <Button Text="Play" Command="{Binding PlayCommand}" />
 
             </AbsoluteLayout>
-        </Grid>-->
+        </Grid>--><!--
 
     </ContentPage.Content>
-</ContentPage>
+</ContentPage>-->
