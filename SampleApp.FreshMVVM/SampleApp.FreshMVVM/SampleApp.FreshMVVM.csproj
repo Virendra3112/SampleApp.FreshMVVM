@@ -14,6 +14,7 @@
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.483" />
     <PackageReference Include="FreshMvvm" Version="3.0.0" />
     <PackageReference Include="LibVLCSharp.Forms" Version="3.5.0" />
+    <PackageReference Include="Plugin.Fingerprint" Version="2.1.4" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
     <PackageReference Include="Rox.Xamarin.Video" Version="2.1.0" />
     <PackageReference Include="SkiaSharp" Version="2.80.2" />
