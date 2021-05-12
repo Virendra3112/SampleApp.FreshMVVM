@@ -63,6 +63,7 @@ namespace SampleApp.FreshMVVM.PageModels
             //MenuList.Add(new MenuItems { Id = 8, Name = "Video Player2" });
             //MenuList.Add(new MenuItems { Id = 9, Name = "Sample Stepper" });
             MenuList.Add(new MenuItems { Id = 10, Name = "Video Player3" });
+            MenuList.Add(new MenuItems { Id = 11, Name = "Fingerprint" });
 
 
         }
@@ -136,6 +137,12 @@ namespace SampleApp.FreshMVVM.PageModels
 
                 case "Video Player3":
                     CoreMethods.PushPageModel<SampleVideoPlayerThreePageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;  
+                
+                case "Fingerprint":
+                    CoreMethods.PushPageModel<CustomFingerprintPageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
