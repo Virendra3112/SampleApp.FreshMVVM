@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms;
 using SampleApp.FreshMVVM.Pages;
+using Plugin.CurrentActivity;
 //using LibVLCSharp.Forms.Shared;
 //using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
@@ -30,6 +31,7 @@ namespace SampleApp.FreshMVVM.Droid
 
                 Xamarin.Essentials.Platform.Init(this, savedInstanceState);
                 global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+                CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
                 //CrossMediaManager.Current.Init(this);
 

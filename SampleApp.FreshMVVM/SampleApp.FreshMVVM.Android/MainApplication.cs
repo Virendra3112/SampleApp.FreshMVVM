@@ -34,6 +34,8 @@ namespace SampleApp.FreshMVVM.Droid
 			base.OnCreate();
 			RegisterActivityLifecycleCallbacks(this);
 			CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
+
+			//CrossFingerprint.
 		}
 		public override void OnTerminate()
 		{

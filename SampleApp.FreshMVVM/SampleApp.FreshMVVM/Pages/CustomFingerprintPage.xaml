@@ -18,7 +18,7 @@
                 <Switch x:Name="swAutoCancel"></Switch>
                 <Label Text="Cancel after 10sec"></Label>
             </StackLayout>
-            <Button Text="Authenticate" Command="{Binding AuthCommand}" />
+            <Button Text="Authenticate" Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

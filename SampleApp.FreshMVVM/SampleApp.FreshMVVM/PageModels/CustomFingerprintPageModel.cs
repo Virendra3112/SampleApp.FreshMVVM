@@ -25,14 +25,14 @@ namespace SampleApp.FreshMVVM.PageModels
 
         private async void OnAuthClicked(object obj)
         {
-            try
-            {
-                await AuthenticationAsync("Auth user", null, null, null);
-            }
-            catch(Exception ex)
-            {
+            //try
+            //{
+            //    await AuthenticationAsync("Auth user", null, null, null);
+            //}
+            //catch(Exception ex)
+            //{
 
-            }
+            //}
         }
 
         private async Task AuthenticationAsync
