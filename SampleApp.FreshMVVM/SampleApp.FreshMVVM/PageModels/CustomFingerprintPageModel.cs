@@ -25,14 +25,14 @@ namespace SampleApp.FreshMVVM.PageModels
 
         private async void OnAuthClicked(object obj)
         {
-            //try
-            //{
-            //    await AuthenticationAsync("Auth user", null, null, null);
-            //}
-            //catch(Exception ex)
-            //{
+            try
+            {
+                await AuthenticationAsync("Auth user", null, null, null);
+            }
+            catch (Exception ex)
+            {
 
-            //}
+            }
         }
 
         private async Task AuthenticationAsync
@@ -41,12 +41,16 @@ namespace SampleApp.FreshMVVM.PageModels
             //_cancel = swAutoCancel.IsToggled ? new CancellationTokenSource
             //          (TimeSpan.FromSeconds(10)) : new CancellationTokenSource();
 
-            var dialogConfig = new AuthenticationRequestConfiguration("Test",reason)
+            var dialogConfig = new AuthenticationRequestConfiguration("Test App111", reason)
             {
-                //CancelTitle = cancel,
-                //FallbackTitle = fallback,
-                //UseDialog = true
+                CancelTitle = cancel,
+                FallbackTitle = "",
+                AllowAlternativeAuthentication = false,
+                ConfirmationRequired = true,
+
             };
+
+            dialogConfig.HelpTexts.MovedTooFast = tooFast;
 
             var result = await Plugin.Fingerprint.CrossFingerprint.Current.AuthenticateAsync
                          (dialogConfig);
