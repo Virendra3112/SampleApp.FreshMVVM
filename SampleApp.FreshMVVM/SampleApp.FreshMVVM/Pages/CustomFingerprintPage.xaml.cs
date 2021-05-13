@@ -19,17 +19,17 @@ namespace SampleApp.FreshMVVM.Pages
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                await AuthenticationAsync("Auth user");
-            }
-            catch (Exception ex)
-            {
+        //private async void Button_Clicked(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        await AuthenticationAsync("Auth user");
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         private CancellationTokenSource _cancel;
 
