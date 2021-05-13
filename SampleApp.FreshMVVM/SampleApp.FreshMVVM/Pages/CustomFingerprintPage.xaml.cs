@@ -43,8 +43,9 @@ namespace SampleApp.FreshMVVM.Pages
             {
                 CancelTitle = cancel,
                 FallbackTitle = "",
-                AllowAlternativeAuthentication = true,
-                ConfirmationRequired = false,
+                AllowAlternativeAuthentication = false,
+                ConfirmationRequired = true,
+                
             };
 
             dialogConfig.HelpTexts.MovedTooFast = tooFast;
