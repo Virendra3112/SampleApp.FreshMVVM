@@ -123,12 +123,12 @@ namespace SampleApp.FreshMVVM.PageModels
 
                     break;
 
-                //case "Video Player2":
-                //    CoreMethods.PushPageModel<SampleVideoPlayerTwoPageModel>();
-                //    AppHelper.MenuIsPresented = false;
+                case "video player2":
+                    //CoreMethods.PushPageModel<SampleVideoPlayerTwoPageModel>();
+                    AppHelper.MenuIsPresented = false;
 
-                //    break;
-                
+                    break;
+
                 case "Sample Stepper":
                     CoreMethods.PushPageModel<SampleStepperPageModel>();
                     AppHelper.MenuIsPresented = false;
@@ -139,8 +139,8 @@ namespace SampleApp.FreshMVVM.PageModels
                     CoreMethods.PushPageModel<SampleVideoPlayerThreePageModel>();
                     AppHelper.MenuIsPresented = false;
 
-                    break;  
-                
+                    break;
+
                 case "Fingerprint":
                     CoreMethods.PushPageModel<CustomFingerprintPageModel>();
                     AppHelper.MenuIsPresented = false;
