@@ -104,6 +104,8 @@ namespace SampleApp.FreshMVVM.PageModels
                         break;
 
                     case "Language":
+
+                        SelectLanguageCommand.Execute(null);
                         //Todo: Select app languagte
 
                         //var language = CultureInfo.GetCultures(CultureTypes.NeutralCultures).ToList().First(element => element.EnglishName.Contains(picker.SelectedItem.ToString())); ;

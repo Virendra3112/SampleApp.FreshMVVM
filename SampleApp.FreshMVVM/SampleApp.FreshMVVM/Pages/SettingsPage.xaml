@@ -70,6 +70,7 @@
             <StackLayout IsVisible="{Binding IsSelectLanguageVisible}"  AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,300,300">
 
                 <customUI:CustomLanguagePicker/>
+                
 
             </StackLayout>
             
