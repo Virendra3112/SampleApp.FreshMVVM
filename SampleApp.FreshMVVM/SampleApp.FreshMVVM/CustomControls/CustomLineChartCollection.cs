@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SampleApp.FreshMVVM.CustomControls
 {
-    class CustomLineChartCollection
+    public class CustomLineChartCollection
     {
     }
 }
