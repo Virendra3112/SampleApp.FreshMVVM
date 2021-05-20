@@ -123,6 +123,7 @@
     <Compile Include="CustomRendrers\AppFileHelper.cs" />
     <Compile Include="CustomRendrers\AppLocale.cs" />
     <Compile Include="CustomRendrers\ImageOperations.cs" />
+    <Compile Include="CustomRendrers\MultiMediaPickerService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="MyCustomDialogFragment.cs" />
