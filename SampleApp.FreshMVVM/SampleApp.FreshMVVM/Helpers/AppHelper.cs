@@ -22,31 +22,38 @@ namespace SampleApp.FreshMVVM.Helpers
 
         public static void InitializeAndShowMasterDetailPage()
         {
-            masterDetailNav = new FreshMasterDetailNavigationContainer();
-
-            var drawerMenuPage = FreshPageModelResolver.ResolvePageModel<DrawerMenuPageModel>();
-            var homePageModel = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
-            var navContainer = new NavigationPage(homePageModel)
+            try
             {
-                BarBackgroundColor = Color.FromHex("#121212"),
-                BarTextColor = (Color.White)
-            };
-            masterDetailNav.Master = drawerMenuPage;
-            masterDetailNav.Detail = navContainer;
-            switch (Device.RuntimePlatform)
-            {
-                case Device.iOS:
-                    masterDetailNav.IsGestureEnabled = false;
-                    break;
+                masterDetailNav = new FreshMasterDetailNavigationContainer();
 
-                case Device.Android:
-                    masterDetailNav.IsGestureEnabled = true;
-                    break;
+                var drawerMenuPage = FreshPageModelResolver.ResolvePageModel<DrawerMenuPageModel>();
+                var homePageModel = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
+                var navContainer = new NavigationPage(homePageModel)
+                {
+                    BarBackgroundColor = Color.FromHex("#121212"),
+                    BarTextColor = (Color.White)
+                };
+                masterDetailNav.Master = drawerMenuPage;
+                masterDetailNav.Detail = navContainer;
+                switch (Device.RuntimePlatform)
+                {
+                    case Device.iOS:
+                        masterDetailNav.IsGestureEnabled = false;
+                        break;
 
-                default:
-                    break;
+                    case Device.Android:
+                        masterDetailNav.IsGestureEnabled = true;
+                        break;
+
+                    default:
+                        break;
+                }
+                Application.Current.MainPage = masterDetailNav;
             }
-            Application.Current.MainPage = masterDetailNav;
+            catch (System.Exception ex)
+            {
+
+            }
 
         }
     }
