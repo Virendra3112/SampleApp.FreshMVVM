@@ -29,6 +29,8 @@ namespace SampleApp.FreshMVVM
                 var loginContainer = new FreshNavigationContainer(loginPage, "login");
                 var myPitchListViewContainer = new FreshTabbedNavigationContainer("Main");
 
+               // FreshIOC.Container.Resolve<IMultiMediaPickerService>();
+
                 
 
                 if (!AppSettings.IsUserLoggedIn)
