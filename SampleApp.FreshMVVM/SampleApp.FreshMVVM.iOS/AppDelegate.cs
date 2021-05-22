@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Foundation;
 //using LibVLCSharp.Forms.Shared;
 using SampleApp.FreshMVVM.Pages;
@@ -23,15 +24,23 @@ namespace SampleApp.FreshMVVM.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+            try
+            {
+                global::Xamarin.Forms.Forms.Init();
 
-            UltimateXFSettup.Initialize();
+                UltimateXFSettup.Initialize();
 
-            //CrossMediaManager.Current.Init();
+                //CrossMediaManager.Current.Init();
 
-            //LibVLCSharpFormsRenderer.Init();
+                //LibVLCSharpFormsRenderer.Init();
 
-            LoadApplication(new App());
+                FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+                LoadApplication(new App());
+            }
+            catch(Exception ex)
+            {
+
+            }
 
             return base.FinishedLaunching(app, options);
         }
