@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Foundation;
+using SampleApp.FreshMVVM.Interfaces;
+using SampleApp.FreshMVVM.iOS.CustomRendrers;
 //using LibVLCSharp.Forms.Shared;
 using SampleApp.FreshMVVM.Pages;
 //using MediaManager;
@@ -29,6 +31,8 @@ namespace SampleApp.FreshMVVM.iOS
                 global::Xamarin.Forms.Forms.Init();
 
                 UltimateXFSettup.Initialize();
+
+                FreshMvvm.FreshIOC.Container.Register<IMultiMediaPickerService, MultiMediaPickerService>();
 
                 //CrossMediaManager.Current.Init();
 
