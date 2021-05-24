@@ -2,11 +2,8 @@
 using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.PageModels;
-using SampleApp.FreshMVVM.Resources;
 using System;
 using System.Globalization;
-using System.Linq;
-using System.Threading;
 using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM
@@ -28,10 +25,6 @@ namespace SampleApp.FreshMVVM
                 var loginPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<LoginPageModel>();
                 var loginContainer = new FreshNavigationContainer(loginPage, "login");
                 var myPitchListViewContainer = new FreshTabbedNavigationContainer("Main");
-
-               // FreshIOC.Container.Resolve<IMultiMediaPickerService>();
-
-                
 
                 if (!AppSettings.IsUserLoggedIn)
                 {
