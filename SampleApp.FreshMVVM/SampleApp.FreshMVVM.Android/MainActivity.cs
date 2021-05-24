@@ -6,6 +6,9 @@ using Android.OS;
 using Xamarin.Forms;
 using SampleApp.FreshMVVM.Pages;
 using Plugin.CurrentActivity;
+using SampleApp.FreshMVVM.Droid.CustomRendrers;
+using Android.Content;
+using SampleApp.FreshMVVM.Interfaces;
 //using LibVLCSharp.Forms.Shared;
 //using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
@@ -56,6 +59,10 @@ namespace SampleApp.FreshMVVM.Droid
                     RequestedOrientation = ScreenOrientation.Portrait;
                 });
 
+
+                FreshMvvm.FreshIOC.Container.Register<IMultiMediaPickerService, MultiMediaPickerService>();
+
+
                 LoadApplication(new App());
             }
             catch (System.Exception ex)
@@ -67,6 +74,13 @@ namespace SampleApp.FreshMVVM.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            MultiMediaPickerService.SharedInstance.OnActivityResult(requestCode, resultCode, data);
         }
     }
 }
