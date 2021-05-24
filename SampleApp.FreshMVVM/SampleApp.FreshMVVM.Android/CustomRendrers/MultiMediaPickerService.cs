@@ -6,6 +6,7 @@ using Android.Media;
 using Android.Provider;
 using Android.Widget;
 using Plugin.CurrentActivity;
+using SampleApp.FreshMVVM.Droid.CustomRendrers;
 using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.Models;
@@ -15,7 +16,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
+//[assembly: Dependency(typeof(MultiMediaPickerService))]
 namespace SampleApp.FreshMVVM.Droid.CustomRendrers
 {
     public class MultiMediaPickerService : IMultiMediaPickerService
@@ -23,9 +26,11 @@ namespace SampleApp.FreshMVVM.Droid.CustomRendrers
         public static MultiMediaPickerService SharedInstance = new MultiMediaPickerService();
         int MultiPickerResultCode = 9793;
         const string TemporalDirectoryName = "TmpMedia";
+       
 
-        MultiMediaPickerService()
+        public MultiMediaPickerService()
         {
+
         }
 
         public event EventHandler<MediaFile> OnMediaPicked;
