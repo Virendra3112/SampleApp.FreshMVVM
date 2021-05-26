@@ -12,9 +12,11 @@ using GMImagePicker;
 using Photos;
 using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.Interfaces;
+using SampleApp.FreshMVVM.iOS.CustomRendrers;
 using SampleApp.FreshMVVM.Models;
 using SampleApp.FreshMVVM.Models.Enum;
 using UIKit;
+using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM.iOS.CustomRendrers
 {
