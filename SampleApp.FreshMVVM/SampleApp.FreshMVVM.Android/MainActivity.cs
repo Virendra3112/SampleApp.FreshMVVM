@@ -9,6 +9,7 @@ using Plugin.CurrentActivity;
 using SampleApp.FreshMVVM.Droid.CustomRendrers;
 using Android.Content;
 using SampleApp.FreshMVVM.Interfaces;
+using Plugin.Permissions;
 //using LibVLCSharp.Forms.Shared;
 //using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
@@ -16,7 +17,7 @@ using SampleApp.FreshMVVM.Interfaces;
 
 namespace SampleApp.FreshMVVM.Droid
 {
-    [Activity(Label = "SampleApp.FreshMVVM", Icon = "@mipmap/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "SampleApp.FreshMVVM", Icon = "@mipmap/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,7 +41,7 @@ namespace SampleApp.FreshMVVM.Droid
 
                 //UltimateXFSettup.Initialize(this);
 
-                //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+                FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
                 //var ignore = typeof(SvgCachedImage);
                 Acr.UserDialogs.UserDialogs.Init(this);
 
@@ -59,9 +60,7 @@ namespace SampleApp.FreshMVVM.Droid
                     RequestedOrientation = ScreenOrientation.Portrait;
                 });
 
-
                 FreshMvvm.FreshIOC.Container.Register<IMultiMediaPickerService, MultiMediaPickerService>();
-
 
                 LoadApplication(new App());
             }
@@ -71,8 +70,11 @@ namespace SampleApp.FreshMVVM.Droid
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            //Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
+            //base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
