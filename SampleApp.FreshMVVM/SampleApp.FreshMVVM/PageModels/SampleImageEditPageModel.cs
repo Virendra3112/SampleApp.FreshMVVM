@@ -17,29 +17,69 @@ namespace SampleApp.FreshMVVM.PageModels
         public ICommand SelectImagesCommand { get; set; }
 
         private ObservableCollection<MediaFile> media;
-        public ObservableCollection<MediaFile> Media
-        {
-            get { return media; }
-            set { SetPropertyValue(ref media, value); }
-        }
+        public ObservableCollection<MediaFile> Media;
+        //{
+        //    get { return media; }
+        //    set { SetPropertyValue(ref media, value); }
+        //}
 
 
-        public IMultiMediaPickerService _multiMediaPickerService;
+        public IMultiMediaPickerService _multiMediaPickerService { get; set; }
 
 
         public SampleImageEditPageModel(IMultiMediaPickerService multiMediaPickerService)
         {
-            _multiMediaPickerService = multiMediaPickerService;
-
-            SelectImagesCommand = new Command(async (obj) =>
+            try
             {
-                var hasPermission = await CheckPermissionsAsync();
-                if (hasPermission)
+                _multiMediaPickerService = multiMediaPickerService;
+
+                SelectImagesCommand = new Command(async (obj) =>
                 {
-                    Media = new ObservableCollection<MediaFile>();
-                    await _multiMediaPickerService.PickPhotosAsync();
-                }
-            });
+                    var hasPermission = await CheckPermissionsAsync();
+                    if (hasPermission)
+                    {
+                        Media = new ObservableCollection<MediaFile>();
+                        //await DependencyService.Get<IMultiMediaPickerService>().PickPhotosAsync();
+                        await _multiMediaPickerService.PickPhotosAsync();
+                    }
+                });
+
+
+
+                //DependencyService.Get<IMultiMediaPickerService>().OnMediaPicked += (s, a) =>
+                _multiMediaPickerService.OnMediaPicked += (s, a) =>
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        Media.Add(a);
+
+                    });
+
+                };
+
+                _multiMediaPickerService.OnMediaPickedCompleted += (s, a) =>
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+
+                    });
+
+                };
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected override void ViewIsAppearing(object sender, EventArgs e)
+        {
+            base.ViewIsAppearing(sender, e);
+
         }
 
         async Task<bool> CheckPermissionsAsync()
