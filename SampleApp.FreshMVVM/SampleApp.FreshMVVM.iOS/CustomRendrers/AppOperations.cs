@@ -30,7 +30,7 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
                     var content = response.Content == null ? null : await response.Content.ReadAsStringAsync();
                     var appLookup = System.Json.JsonValue.Parse(content);
 
-                    return appLookup["results"][0]["version"] + "" + appLookup["results"][0]["trackViewUrl"];                  
+                    return appLookup["results"][0]["version"] + "" + appLookup["results"][0]["trackViewUrl"];
                 };
             }
             catch (Exception e)
@@ -39,9 +39,29 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
             }
         }
 
-        public Task OpenAppInStore()
+        public async Task OpenAppInStore()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var _appurl = GetAppUrl();
+
+#if __IOS__
+                UIKit.UIApplication.SharedApplication.OpenUrl(new NSUrl($"{_appurl}"));
+#elif __MACOS__
+                AppKit.NSWorkspace.SharedWorkspace.OpenUrl(new NSUrl($"{_appUrl}"));
+#endif
+            }
+            catch (Exception e)
+            {
+            }
+        }
+
+        private string GetAppUrl()
+        {
+            var countryCode = "us";//specify country code
+
+            return ($"http://itunes.apple.com/{countryCode}/lookup?bundleId={bundleIdentifier}");
         }
     }
 }
