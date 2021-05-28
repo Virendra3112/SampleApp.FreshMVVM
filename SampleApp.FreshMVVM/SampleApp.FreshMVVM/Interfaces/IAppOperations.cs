@@ -1,7 +1,10 @@
-﻿namespace SampleApp.FreshMVVM.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace SampleApp.FreshMVVM.Interfaces
 {
     public interface IAppOperations
     {
-         string CheckAppVersion(string currentVersion);
+        Task<string> CheckAppVersion(string currentVersion);
+        Task OpenAppInStore();
     }
 }
