@@ -6,11 +6,11 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
 
-            <Button TextColor="White" BackgroundColor="Blue" Text="Select images from gallery" Command="{Binding SelectImagesCommand}"/>
-            <Button TextColor="White" BackgroundColor="Blue" Text="Select videos from gallery" Command="{Binding SelectVideosCommand}"/>
+            <Button TextColor="Black" BackgroundColor="LightBlue" Text="Select images from gallery" Command="{Binding SelectImagesCommand}"/>
+            <!--<Button TextColor="White" BackgroundColor="Blue" Text="Select videos from gallery" Command="{Binding SelectVideosCommand}"/>-->
 
             <!--<ListView   x:Name="listItems" ItemsSource="{Binding Media}"
-                        SeparatorVisibility="None"
+                        SeparatorVisibility="None" BackgroundColor="LightBlue"
                         HasUnevenRows="false" RowHeight="100" >
                 <ListView.ItemTemplate>
                     <DataTemplate >
