@@ -38,10 +38,13 @@ namespace SampleApp.FreshMVVM.iOS
 
                 //LibVLCSharpFormsRenderer.Init();
 
+                FreshMvvm.FreshIOC.Container.Register<IMultiMediaPickerService, MultiMediaPickerService>();
+                FreshMvvm.FreshIOC.Container.Register<IAppOperations, AppOperations>();
+
                 FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
                 LoadApplication(new App());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
