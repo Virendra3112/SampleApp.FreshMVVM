@@ -61,6 +61,7 @@ namespace SampleApp.FreshMVVM.Droid
                 });
 
                 FreshMvvm.FreshIOC.Container.Register<IMultiMediaPickerService, MultiMediaPickerService>();
+                FreshMvvm.FreshIOC.Container.Register<IAppOperations, AppOperations>();
 
                 LoadApplication(new App());
             }
