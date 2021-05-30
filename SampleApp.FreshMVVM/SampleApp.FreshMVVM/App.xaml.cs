@@ -4,6 +4,7 @@ using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.PageModels;
 using System;
 using System.Globalization;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SampleApp.FreshMVVM
@@ -11,12 +12,38 @@ namespace SampleApp.FreshMVVM
     public partial class App : Application
     {
         private CultureInfo language;
+        public static double ScreenWidth, ScreenHeight;
 
         public App()
         {
             try
             {
                 InitializeComponent();
+
+
+                // Get Metrics
+                var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+                // Orientation (Landscape, Portrait, Square, Unknown)
+                var orientation = mainDisplayInfo.Orientation;
+
+                // Rotation (0, 90, 180, 270)
+                var rotation = mainDisplayInfo.Rotation;
+
+                // Width (in pixels)
+                var width = mainDisplayInfo.Width;
+
+                // Width (in xamarin.forms units)
+                var xamarinWidth = width / mainDisplayInfo.Density;
+
+                // Height (in pixels)
+                var height = mainDisplayInfo.Height;
+
+                // Screen density
+                var density = mainDisplayInfo.Density;
+
+                ScreenWidth = width;
+                ScreenHeight = height;
 
                 //Set application culture by default based on device culture
                 var phoneCulture = DependencyService.Get<IAppLocale>().GetCurrentCultureInfo();
