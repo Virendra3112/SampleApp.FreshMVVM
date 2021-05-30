@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using SampleApp.FreshMVVM.Interfaces;
 using SampleApp.FreshMVVM.iOS.CustomRendrers;
@@ -42,6 +44,11 @@ namespace SampleApp.FreshMVVM.iOS
                 FreshMvvm.FreshIOC.Container.Register<IAppOperations, AppOperations>();
 
                 FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
+                CachedImageRenderer.Init();
+                var ignore = typeof(SvgCachedImage);
+
+
                 LoadApplication(new App());
             }
             catch (Exception ex)

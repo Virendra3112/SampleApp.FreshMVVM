@@ -10,6 +10,8 @@ using SampleApp.FreshMVVM.Droid.CustomRendrers;
 using Android.Content;
 using SampleApp.FreshMVVM.Interfaces;
 using Plugin.Permissions;
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
 //using LibVLCSharp.Forms.Shared;
 //using Plugin.MediaManager.Forms.Android;
 //using UltimateXF.Droid;
@@ -44,6 +46,10 @@ namespace SampleApp.FreshMVVM.Droid
                 FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
                 //var ignore = typeof(SvgCachedImage);
                 Acr.UserDialogs.UserDialogs.Init(this);
+
+
+                CachedImageRenderer.Init(true);
+                var ignore = typeof(SvgCachedImage);
 
                 //LibVLCSharpFormsRenderer.Init();
 
