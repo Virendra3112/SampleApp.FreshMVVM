@@ -10,11 +10,18 @@ using Xamarin.Forms.Xaml;
 namespace SampleApp.FreshMVVM.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomPanPinchSample : ContentPage
+    public partial class CustomPanPinchSamplePage : ContentPage
     {
-        public CustomPanPinchSample()
+        public CustomPanPinchSamplePage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(Exception es)
+            {
+
+            }
         }
     }
 }

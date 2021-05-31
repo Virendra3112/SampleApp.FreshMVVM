@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" 
+             xmlns:local="clr-namespace:SampleApp.FreshMVVM.CustomControls" Title="Sample"
+             x:Class="SampleApp.FreshMVVM.Pages.CustomPanPinchSamplePage">
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <local:CustomPanPinchToZoomContainer>
+                <local:CustomPanPinchToZoomContainer.Content>
+                    <ffSvg:SvgCachedImage Source="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg"/>
+                </local:CustomPanPinchToZoomContainer.Content>
+            </local:CustomPanPinchToZoomContainer>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
