@@ -60,15 +60,16 @@ namespace SampleApp.FreshMVVM.PageModels
                 //MenuList.Add(new MenuItems { Id = 3, Name = "Image Compression" });
                 //MenuList.Add(new MenuItems { Id = 4, Name = "Line Chart" });//Todo
                 MenuList.Add(new MenuItems { Id = 5, Name = "Ultimate XF Line Chart" });
-                MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
+                //MenuList.Add(new MenuItems { Id = 6, Name = "Video Player" });
                 //MenuList.Add(new MenuItems { Id = 7, Name = "Sample App Wireframe" });
                 //MenuList.Add(new MenuItems { Id = 8, Name = "Video Player2" });
                 //MenuList.Add(new MenuItems { Id = 9, Name = "Sample Stepper" });
-                MenuList.Add(new MenuItems { Id = 10, Name = "Video Player3" });
+                //MenuList.Add(new MenuItems { Id = 10, Name = "Video Player3" });
                 MenuList.Add(new MenuItems { Id = 11, Name = "Fingerprint" });
-                MenuList.Add(new MenuItems { Id = 12, Name = "ImageEdit" });
+                //MenuList.Add(new MenuItems { Id = 12, Name = "ImageEdit" });
+                MenuList.Add(new MenuItems { Id = 13, Name = "PanPinchSVG" });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -154,9 +155,15 @@ namespace SampleApp.FreshMVVM.PageModels
                     AppHelper.MenuIsPresented = false;
 
                     break;
-                
+
                 case "ImageEdit":
                     CoreMethods.PushPageModel<SampleImageEditPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+
+                case "PanPinchSVG":
+                    CoreMethods.PushPageModel<CustomPanPinchSamplePageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
