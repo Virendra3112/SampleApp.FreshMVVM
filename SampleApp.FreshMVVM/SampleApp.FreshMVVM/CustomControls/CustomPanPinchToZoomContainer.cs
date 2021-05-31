@@ -9,8 +9,6 @@ namespace SampleApp.FreshMVVM.CustomControls
         double xOffset = 0;
         double yOffset = 0;
 
-        private double _xGestureStart;
-        private double _yGestureStart;
 
         public CustomPanPinchToZoomContainer()
         {
