@@ -19,6 +19,24 @@ namespace SampleApp.FreshMVVM.CustomControls
             var panGestureRecognizer = new PanGestureRecognizer();
             panGestureRecognizer.PanUpdated += MovePicture;
             GestureRecognizers.Add(panGestureRecognizer);
+
+
+            var doubleTapRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 2 };
+            doubleTapRecognizer.Tapped += DoubleTapRecognizer_Tapped;
+            GestureRecognizers.Add(doubleTapRecognizer);
+        }
+
+        private void DoubleTapRecognizer_Tapped(object sender, EventArgs e)
+        {
+            xOffset = 0;
+            yOffset = 0;
+            currentScale = 1;
+            startScale = 1;
+
+            Content.TranslationX = 0;
+            Content.TranslationY = 0;
+            Content.Scale = 1;
+
         }
 
         private void MovePicture(object sender, PanUpdatedEventArgs e)
