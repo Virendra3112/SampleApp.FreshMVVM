@@ -1,12 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" 
+             xmlns:local="clr-namespace:SampleApp.FreshMVVM.CustomControls" 
              x:Class="SampleApp.FreshMVVM.Pages.CarouselWithSVGPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="LightGray">
+                <CarouselView IndicatorView="indicatorView" 
+                          Loop="False" IsSwipeEnabled="{Binding IsSwipeEnable}"
+                          Position="{Binding CurrenrtImagePosition, Mode=TwoWay}"
+                          ItemsSource="{Binding List}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowSpacing="0" ColumnSpacing="0" Margin="0" Padding="0">
+                                <local:CustomPanPinchToZoomContainer>
+                                    <local:CustomPanPinchToZoomContainer.Content>
+                                        <ffSvg:SvgCachedImage Source="{Binding .}"/>
+                                    </local:CustomPanPinchToZoomContainer.Content>
+                                </local:CustomPanPinchToZoomContainer>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <IndicatorView x:Name="indicatorView"
+               IndicatorsShape="Circle"
+               IndicatorColor="LightGray"
+               BackgroundColor="Yellow"
+               HeightRequest="20"            VerticalOptions="End"
+               SelectedIndicatorColor="DarkGray" />
+
+            </StackLayout>
+
+            <Image Source="icon.png" AbsoluteLayout.LayoutBounds="0.99,0.5,40,40"
+                   IsVisible="{Binding RightBtnVisible}"
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding RightCommand}"/>
+                </Image.GestureRecognizers>
+                
+            </Image>  
+            
+            <Image Source="icon.png" AbsoluteLayout.LayoutBounds="0.01,0.5,40,40"
+                   IsVisible="{Binding LeftBtnVisible}"
+                   AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{Binding LeftCommand}"/>
+                </Image.GestureRecognizers>
+                
+            </Image>
+            
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
