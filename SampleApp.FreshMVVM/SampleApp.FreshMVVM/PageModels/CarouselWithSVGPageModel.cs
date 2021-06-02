@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleApp.FreshMVVM.CustomControls;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -95,7 +96,6 @@ namespace SampleApp.FreshMVVM.PageModels
             }
         }
 
-
         public ICommand RightCommand { get; set; }
 
         public ICommand LeftCommand { get; set; }
@@ -120,6 +120,22 @@ namespace SampleApp.FreshMVVM.PageModels
             SetBtnStatus(0);
 
             IsSwipeEnable = true;
+
+
+            //enable swipe on double tap
+            MessagingCenter.Subscribe<CustomPanPinchToZoomContainer>(this, "Reset", (sender) =>
+            {
+                IsSwipeEnable = true;
+            });
+
+
+            //disable swipe on pan and pinch
+            MessagingCenter.Subscribe<CustomPanPinchToZoomContainer>(this, "Zooming", (sender) =>
+            {
+                IsSwipeEnable = false;
+            });
+
+
         }
 
 
@@ -130,6 +146,8 @@ namespace SampleApp.FreshMVVM.PageModels
                 if (List != null && List.Any())
                 {
                     CurrenrtImagePosition = CurrenrtImagePosition - 1;
+
+                    //send message to reset image
                 }
             }
             catch (Exception)
@@ -146,6 +164,8 @@ namespace SampleApp.FreshMVVM.PageModels
                 if (List != null && List.Any())
                 {
                     CurrenrtImagePosition = CurrenrtImagePosition + 1;
+                    //send message to reset image
+
                 }
 
             }
