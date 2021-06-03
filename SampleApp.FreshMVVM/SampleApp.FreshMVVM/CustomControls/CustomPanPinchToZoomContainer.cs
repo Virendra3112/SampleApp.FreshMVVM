@@ -28,6 +28,13 @@ namespace SampleApp.FreshMVVM.CustomControls
 
         private void DoubleTapRecognizer_Tapped(object sender, EventArgs e)
         {
+            ResetImage();
+            MessagingCenter.Send(this, "Reset", "Reset");
+
+        }
+
+        public void ResetImage()
+        {
             xOffset = 0;
             yOffset = 0;
             currentScale = 1;
@@ -36,7 +43,6 @@ namespace SampleApp.FreshMVVM.CustomControls
             Content.TranslationX = 0;
             Content.TranslationY = 0;
             Content.Scale = 1;
-
         }
 
         private void MovePicture(object sender, PanUpdatedEventArgs e)
