@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "378559177940",
+    "firebase_url": "https://xamarinfirebase-65da3.firebaseio.com",
+    "project_id": "xamarinfirebase-65da3",
+    "storage_bucket": "xamarinfirebase-65da3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378559177940:android:d689d9106541d87cc10741",
+        "android_client_info": {
+          "package_name": "com.virendra.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378559177940-rojoak9j28itcqna84molnk4p2ps7lh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJOBcIERTyZTyS82hp1pp5mbrTJi7g2xg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378559177940-rojoak9j28itcqna84molnk4p2ps7lh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
