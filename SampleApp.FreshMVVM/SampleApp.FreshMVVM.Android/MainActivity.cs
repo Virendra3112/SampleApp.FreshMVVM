@@ -48,18 +48,14 @@ namespace SampleApp.FreshMVVM.Droid
                 CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
                 //CrossMediaManager.Current.Init(this);
+                //UltimateXFSettup.Initialize(this)
+                //LibVLCSharpFormsRenderer.Init();
 
-                //UltimateXFSettup.Initialize(this);
 
-                FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
-                //var ignore = typeof(SvgCachedImage);
                 Acr.UserDialogs.UserDialogs.Init(this);
-
 
                 CachedImageRenderer.Init(true);
                 var ignore = typeof(SvgCachedImage);
-
-                //LibVLCSharpFormsRenderer.Init();
 
                 IsPlayServicesAvailable(); //You can use this method to check if play services are available.
                 CreateNotificationChannel();
