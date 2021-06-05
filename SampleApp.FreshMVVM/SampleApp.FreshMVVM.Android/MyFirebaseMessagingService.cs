@@ -44,7 +44,9 @@ namespace SampleApp.FreshMVVM.Droid
                                           .SetContentTitle("DemoApp")
                                           .SetContentText(messageBody)
                                           .SetAutoCancel(true)
-                                          .SetContentIntent(pendingIntent);
+                                          .SetContentIntent(pendingIntent)
+                                          //.SetCustomBigContentView()
+                                          ;
 
                 var notificationManager = NotificationManagerCompat.From(this);
                 notificationManager.Notify(MainActivity.NOTIFICATION_ID, notificationBuilder.Build());
