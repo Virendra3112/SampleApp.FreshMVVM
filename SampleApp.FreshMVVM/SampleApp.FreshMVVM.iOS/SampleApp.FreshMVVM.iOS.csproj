@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="CustomRendrers\AppFileHelper.cs" />
     <Compile Include="CustomRendrers\AppLocale.cs" />
+    <Compile Include="CustomRendrers\AppLogger.cs" />
     <Compile Include="CustomRendrers\AppOperations.cs" />
     <Compile Include="CustomRendrers\ImageOperations.cs" />
     <Compile Include="CustomRendrers\MultiMediaPickerService.cs" />
