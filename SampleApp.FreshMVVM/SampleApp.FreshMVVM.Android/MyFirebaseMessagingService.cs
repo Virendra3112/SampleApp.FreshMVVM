@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.Util;
 using AndroidX.Core.App;
 using Firebase.Messaging;
@@ -56,6 +57,21 @@ namespace SampleApp.FreshMVVM.Droid
             {
 
             }
+        }
+
+        public override void OnMessageSent(string p0)
+        {
+            base.OnMessageSent(p0);
+        }
+
+        public override void OnSendError(string p0, Java.Lang.Exception p1)
+        {
+            base.OnSendError(p0, p1);
+        }
+
+        public override void OnConfigurationChanged(Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
         }
     }
 }
