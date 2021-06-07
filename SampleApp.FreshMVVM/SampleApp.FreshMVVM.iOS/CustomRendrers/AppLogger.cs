@@ -1,4 +1,5 @@
-﻿using SampleApp.FreshMVVM.Interfaces;
+﻿using SampleApp.FreshMVVM.Helpers;
+using SampleApp.FreshMVVM.Interfaces;
 using System;
 using System.Threading.Tasks;
 
@@ -6,19 +7,32 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
 {
     public class AppLogger : IAppLogger
     {
-        public Task AddErrorLog(string ClassName, string method, Exception ex, string parameters)
+        public string filePath { get; set; }
+        public async Task AddErrorLog(string ClassName, string method, Exception ex, string parameters)
         {
-            throw new NotImplementedException();
         }
 
-        public Task AddLog(string ClassName, string method, string parameters)
+        public async Task AddLog(string ClassName, string method, string parameters)
         {
-            throw new NotImplementedException();
         }
 
-        public Task SetupLogger(string fileName)
+        public async Task SetupLogger(string fileName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                filePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+                var filename = System.IO.Path.Combine(filePath, "MyLogs.txt");
+                System.IO.File.WriteAllText(filename,
+                    "********************************My App Logs********************************");
+
+                AppSettings.LoggerFilePath = filePath;
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

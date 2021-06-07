@@ -64,6 +64,18 @@ namespace SampleApp.FreshMVVM.Helpers
             {
                 Settings.AddOrUpdateValue(nameof(CurrentTheme), value);
             }
+        } 
+        
+        public static string LoggerFilePath
+        {
+            get
+            {
+                return Settings.GetValueOrDefault(nameof(LoggerFilePath), DefaultUserObjectId);
+            }
+            set
+            {
+                Settings.AddOrUpdateValue(nameof(LoggerFilePath), value);
+            }
         }
     }
 }
