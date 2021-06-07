@@ -1,9 +1,7 @@
 ﻿using SampleApp.FreshMVVM.CustomControls;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -121,7 +119,6 @@ namespace SampleApp.FreshMVVM.PageModels
 
             IsSwipeEnable = true;
 
-
             //enable swipe on double tap
             MessagingCenter.Subscribe<CustomPanPinchToZoomContainer>(this, "Reset", (sender) =>
             {
@@ -134,8 +131,6 @@ namespace SampleApp.FreshMVVM.PageModels
             {
                 IsSwipeEnable = false;
             });
-
-
         }
 
 

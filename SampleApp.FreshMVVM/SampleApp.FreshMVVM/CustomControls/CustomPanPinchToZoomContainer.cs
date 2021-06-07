@@ -29,7 +29,7 @@ namespace SampleApp.FreshMVVM.CustomControls
         private void DoubleTapRecognizer_Tapped(object sender, EventArgs e)
         {
             ResetImage();
-            MessagingCenter.Send(this, "Reset", "Reset");
+            MessagingCenter.Send<CustomPanPinchToZoomContainer>(this, "Reset");
 
         }
 
@@ -50,6 +50,9 @@ namespace SampleApp.FreshMVVM.CustomControls
             switch (e.StatusType)
             {
                 case GestureStatus.Running:
+
+                    MessagingCenter.Send<CustomPanPinchToZoomContainer>(this, "Zooming");
+
                     // Translate and ensure we don't pan beyond the wrapped user interface element bounds.
                     Content.TranslationX =
                       Math.Max(Math.Min(0, xOffset + e.TotalX), -Math.Abs(Content.Width - App.ScreenWidth));
@@ -58,6 +61,8 @@ namespace SampleApp.FreshMVVM.CustomControls
                     break;
 
                 case GestureStatus.Completed:
+                    MessagingCenter.Send<CustomPanPinchToZoomContainer>(this, "Zooming");
+
                     // Store the translation applied during the pan
                     xOffset = Content.TranslationX;
                     yOffset = Content.TranslationY;
@@ -68,6 +73,9 @@ namespace SampleApp.FreshMVVM.CustomControls
 
         void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
         {
+            MessagingCenter.Send<CustomPanPinchToZoomContainer>(this, "Zooming");
+
+
             if (e.Status == GestureStatus.Started)
             {
                 // Store the current scale factor applied to the wrapped user interface element,  

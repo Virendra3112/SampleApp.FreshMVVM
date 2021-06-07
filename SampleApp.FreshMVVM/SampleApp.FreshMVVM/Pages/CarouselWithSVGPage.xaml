@@ -30,7 +30,7 @@
                IndicatorsShape="Circle"
                IndicatorColor="LightGray"
                BackgroundColor="Yellow"
-               HeightRequest="20"            VerticalOptions="End"
+               HeightRequest="20" VerticalOptions="End"
                SelectedIndicatorColor="DarkGray" />
 
             </StackLayout>
