@@ -9,6 +9,7 @@ namespace SampleApp.FreshMVVM.CustomControls
         double xOffset = 0;
         double yOffset = 0;
 
+        public PanGestureRecognizer panGestureRecognizer { get; set; }
 
         public CustomPanPinchToZoomContainer()
         {
@@ -16,9 +17,11 @@ namespace SampleApp.FreshMVVM.CustomControls
             pinchGesture.PinchUpdated += OnPinchUpdated;
             GestureRecognizers.Add(pinchGesture);
 
-            var panGestureRecognizer = new PanGestureRecognizer();
-            panGestureRecognizer.PanUpdated += MovePicture;
-            GestureRecognizers.Add(panGestureRecognizer);
+            //var panGestureRecognizer = new PanGestureRecognizer();
+            //panGestureRecognizer.PanUpdated += MovePicture;
+            //GestureRecognizers.Add(panGestureRecognizer);
+
+            panGestureRecognizer = new PanGestureRecognizer();
 
 
             var doubleTapRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 2 };
@@ -31,6 +34,9 @@ namespace SampleApp.FreshMVVM.CustomControls
             ResetImage();
             MessagingCenter.Send<CustomPanPinchToZoomContainer>(this, "Reset");
 
+
+            if (panGestureRecognizer != null)
+                GestureRecognizers.Remove(panGestureRecognizer);
         }
 
         public void ResetImage()
@@ -78,6 +84,14 @@ namespace SampleApp.FreshMVVM.CustomControls
 
             if (e.Status == GestureStatus.Started)
             {
+                panGestureRecognizer = new PanGestureRecognizer();
+
+                panGestureRecognizer.PanUpdated += MovePicture;
+
+                if (panGestureRecognizer != null)
+                    GestureRecognizers.Add(panGestureRecognizer);
+
+
                 // Store the current scale factor applied to the wrapped user interface element,  
                 // and zero the components for the center point of the translate transform.  
                 startScale = Content.Scale;
@@ -120,6 +134,9 @@ namespace SampleApp.FreshMVVM.CustomControls
                 // Store the translation delta's of the wrapped user interface element.  
                 xOffset = Content.TranslationX;
                 yOffset = Content.TranslationY;
+
+                //if (panGestureRecognizer != null)
+                //    GestureRecognizers.Remove(panGestureRecognizer);
             }
         }
     }
