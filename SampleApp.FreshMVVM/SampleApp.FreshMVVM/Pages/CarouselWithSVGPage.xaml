@@ -10,7 +10,8 @@
                          AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
             BackgroundColor="LightGray">
                 <CarouselView IndicatorView="indicatorView" 
-                          Loop="False" IsSwipeEnabled="{Binding IsSwipeEnable}"
+                              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                          Loop="False" IsSwipeEnabled="True"
                           Position="{Binding CurrenrtImagePosition, Mode=TwoWay}"
                           ItemsSource="{Binding List}">
                     <CarouselView.ItemTemplate>
@@ -18,7 +19,8 @@
                             <Grid RowSpacing="0" ColumnSpacing="0" Margin="0" Padding="0">
                                 <local:CustomPanPinchToZoomContainer>
                                     <local:CustomPanPinchToZoomContainer.Content>
-                                        <ffSvg:SvgCachedImage Source="{Binding .}"/>
+                                        <Image Source="icon"/>
+                                        <!--<ffSvg:SvgCachedImage Source="{Binding .}"/>-->
                                     </local:CustomPanPinchToZoomContainer.Content>
                                 </local:CustomPanPinchToZoomContainer>
                             </Grid>
