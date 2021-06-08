@@ -7,6 +7,7 @@
     <ContentPage.Content>
         <StackLayout Spacing="10">
             <CollectionView x:Name="collectionList" Margin="10"
+                            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                             ItemsSource="{Binding MenuList}"  
                             SelectedItem="{Binding SelectedItem}" 
                             SelectionMode="Single" 
