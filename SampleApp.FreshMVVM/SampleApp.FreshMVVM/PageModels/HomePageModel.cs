@@ -69,6 +69,7 @@ namespace SampleApp.FreshMVVM.PageModels
                 //MenuList.Add(new MenuItems { Id = 12, Name = "ImageEdit" });
                 MenuList.Add(new MenuItems { Id = 13, Name = "PanPinchSVG" });
                 MenuList.Add(new MenuItems { Id = 14, Name = "CarouselWithSVG" });
+                MenuList.Add(new MenuItems { Id = 15, Name = "Notifications" });
             }
             catch (Exception ex)
             {
@@ -167,10 +168,16 @@ namespace SampleApp.FreshMVVM.PageModels
                     CoreMethods.PushPageModel<CustomPanPinchSamplePageModel>();
                     AppHelper.MenuIsPresented = false;
 
-                    break;  
-                
+                    break;
+
                 case "CarouselWithSVG":
                     CoreMethods.PushPageModel<CarouselWithSVGPageModel>();
+                    AppHelper.MenuIsPresented = false;
+
+                    break;
+
+                case "Notifications":
+                    CoreMethods.PushPageModel<AppNotificationPageModel>();
                     AppHelper.MenuIsPresented = false;
 
                     break;
