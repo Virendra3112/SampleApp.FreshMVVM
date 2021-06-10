@@ -142,6 +142,7 @@
     <Compile Include="CustomRendrers\AppLocale.cs" />
     <Compile Include="CustomRendrers\AppLogger.cs" />
     <Compile Include="CustomRendrers\AppOperations.cs" />
+    <Compile Include="CustomRendrers\CircleViewRenderer.cs" />
     <Compile Include="CustomRendrers\ImageHelpers.cs" />
     <Compile Include="CustomRendrers\ImageOperations.cs" />
     <Compile Include="CustomRendrers\MultiMediaPickerService.cs" />
