@@ -7,7 +7,7 @@
         <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
                      Margin="5">
-                <Image Source="icon" BackgroundColor="Yellow"
+                <Image Source="icon" BackgroundColor="Transparent"
                        HorizontalOptions="End"
                        HeightRequest="50" WidthRequest="50"/>
                
