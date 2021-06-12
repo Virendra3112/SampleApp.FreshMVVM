@@ -8,12 +8,23 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
     public class AppLogger : IAppLogger
     {
         public string filePath { get; set; }
-        public async Task AddErrorLog(string ClassName, string method, Exception ex, string parameters)
+        public void AddErrorLog(string ClassName, string method, Exception ex, string parameters)
         {
+            System.IO.File.WriteAllText(AppSettings.LoggerFilePath,
+                                        "ClassName: " + ClassName + " - " +
+                                        "Mathod: " + method + " - " +
+                                        "Parameters: " + parameters +
+                                        "Exception: " + ex +
+                                        "DateTime: " + DateTime.Now);
         }
 
-        public async Task AddLog(string ClassName, string method, string parameters)
+        public void AddLog(string ClassName, string method, string parameters)
         {
+            System.IO.File.WriteAllText(AppSettings.LoggerFilePath,
+                                        "ClassName: " + ClassName + " - " +
+                                        "Mathod: " + method + " - " +
+                                        "Parameters: " + parameters +
+                                        "DateTime: " + DateTime.Now);
         }
 
         public async Task SetupLogger(string fileName)
