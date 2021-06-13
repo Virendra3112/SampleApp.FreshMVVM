@@ -49,6 +49,11 @@ namespace SampleApp.FreshMVVM
                 var phoneCulture = DependencyService.Get<IAppLocale>().GetCurrentCultureInfo();
                 AppLanguageHelper.UpdateLangauge(phoneCulture);
 
+
+                //setup for App logs
+                DependencyService.Get<IAppLogger>().SetupLogger(AppConstants.LoggerFileName);
+
+
                 var loginPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<LoginPageModel>();
                 var loginContainer = new FreshNavigationContainer(loginPage, "login");
                 var myPitchListViewContainer = new FreshTabbedNavigationContainer("Main");
