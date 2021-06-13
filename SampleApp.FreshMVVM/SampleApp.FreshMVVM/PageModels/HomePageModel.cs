@@ -2,6 +2,7 @@
 using SampleApp.FreshMVVM.Models;
 using System;
 using System.Collections.ObjectModel;
+using Xamarin.Essentials;
 
 namespace SampleApp.FreshMVVM.PageModels
 {
@@ -70,6 +71,7 @@ namespace SampleApp.FreshMVVM.PageModels
                 MenuList.Add(new MenuItems { Id = 13, Name = "PanPinchSVG" });
                 MenuList.Add(new MenuItems { Id = 14, Name = "CarouselWithSVG" });
                 MenuList.Add(new MenuItems { Id = 15, Name = "Notifications" });
+                MenuList.Add(new MenuItems { Id = 16, Name = "Export Logs" });
             }
             catch (Exception ex)
             {
@@ -181,7 +183,23 @@ namespace SampleApp.FreshMVVM.PageModels
                     AppHelper.MenuIsPresented = false;
 
                     break;
+
+                case "Export Logs":
+                    {
+                        AppHelper.MenuIsPresented = false;
+                        ExportLogs();
+                    }
+                    break;
             }
+        }
+
+        private async void ExportLogs()
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Uri = AppSettings.LoggerFilePath,
+                Title = "Share App logger file"
+            });
         }
     }
 }
