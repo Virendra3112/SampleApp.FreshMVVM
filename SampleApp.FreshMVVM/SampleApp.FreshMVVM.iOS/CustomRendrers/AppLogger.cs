@@ -10,21 +10,35 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
         public string filePath { get; set; }
         public void AddErrorLog(string ClassName, string method, Exception ex, string parameters)
         {
-            System.IO.File.WriteAllText(AppSettings.LoggerFilePath,
-                                        "ClassName: " + ClassName + " - " +
-                                        "Mathod: " + method + " - " +
-                                        "Parameters: " + parameters +
-                                        "Exception: " + ex +
-                                        "DateTime: " + DateTime.Now);
+            try
+            {
+                System.IO.File.WriteAllText(AppSettings.LoggerFilePath,
+                                               "ClassName: " + ClassName + " - " +
+                                               "Mathod: " + method + " - " +
+                                               "Parameters: " + parameters +
+                                               "Exception: " + ex +
+                                               "DateTime: " + DateTime.Now);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public void AddLog(string ClassName, string method, string parameters)
         {
-            System.IO.File.WriteAllText(AppSettings.LoggerFilePath,
-                                        "ClassName: " + ClassName + " - " +
-                                        "Mathod: " + method + " - " +
-                                        "Parameters: " + parameters +
-                                        "DateTime: " + DateTime.Now);
+            try
+            {
+                System.IO.File.WriteAllText(AppSettings.LoggerFilePath,
+                                               "ClassName: " + ClassName + " - " +
+                                               "Mathod: " + method + " - " +
+                                               "Parameters: " + parameters +
+                                               "DateTime: " + DateTime.Now);
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         public async Task SetupLogger(string fileName)
@@ -33,7 +47,7 @@ namespace SampleApp.FreshMVVM.iOS.CustomRendrers
             {
                 filePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
-                var filename = System.IO.Path.Combine(filePath, "MyLogs.txt");
+                var filename = System.IO.Path.Combine(filePath, fileName);
                 System.IO.File.WriteAllText(filename,
                     "********************************My App Logs********************************");
 
