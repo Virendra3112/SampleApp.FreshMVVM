@@ -1,8 +1,10 @@
 ﻿using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.Interfaces;
+using SampleApp.FreshMVVM.iOS.CustomRendrers;
 using System;
 using System.Threading.Tasks;
 
+[assembly: Xamarin.Forms.Dependency(typeof(AppLogger))]
 namespace SampleApp.FreshMVVM.iOS.CustomRendrers
 {
     public class AppLogger : IAppLogger
