@@ -51,7 +51,8 @@ namespace SampleApp.FreshMVVM
 
 
                 //setup for App logs
-                DependencyService.Get<IAppLogger>().SetupLogger(AppConstants.LoggerFileName);
+                var appLogger = DependencyService.Resolve<IAppLogger>();
+                appLogger.SetupLogger(AppConstants.LoggerFileName);
 
 
                 var loginPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<LoginPageModel>();
