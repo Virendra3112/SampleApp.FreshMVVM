@@ -1,8 +1,10 @@
-﻿using SampleApp.FreshMVVM.Helpers;
+﻿using SampleApp.FreshMVVM.Droid.CustomRendrers;
+using SampleApp.FreshMVVM.Helpers;
 using SampleApp.FreshMVVM.Interfaces;
 using System;
 using System.Threading.Tasks;
 
+[assembly: Xamarin.Forms.Dependency(typeof(AppLogger))]
 namespace SampleApp.FreshMVVM.Droid.CustomRendrers
 {
     public class AppLogger : IAppLogger
