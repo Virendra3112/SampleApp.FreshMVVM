@@ -198,7 +198,8 @@ namespace SampleApp.FreshMVVM.PageModels
             }
             catch (Exception ex)
             {
-                DependencyService.Resolve<IAppLogger>().AddErrorLog(nameof(HomePageModel), nameof(NavigateToPage), ex, selectedItem.Name);
+                DependencyService.Resolve<IAppLogger>()
+                    .AddErrorLog(nameof(HomePageModel), nameof(NavigateToPage), ex, selectedItem.Name);
             }
         }
 
