@@ -150,7 +150,6 @@ namespace SampleApp.FreshMVVM.PageModels
             GroupedItems = new ObservableCollection<ItemsGroupViewModel>(Items
                 .GroupBy(i => i.Category)
                 .Select(g => new ItemsGroupViewModel(g.Key, g)).ToList());
-            //.ToObservableCollection();
         }
 
         private void PrintItemsState()
