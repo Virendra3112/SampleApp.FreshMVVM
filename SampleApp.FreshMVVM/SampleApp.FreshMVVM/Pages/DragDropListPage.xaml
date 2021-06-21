@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.FreshMVVM.Pages.DragDropListPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="20" Padding="20">
             <Frame
             Padding="24"
             BackgroundColor="#2196F3"
@@ -83,15 +83,7 @@
             x:Name="MyItems"
             IsGrouped="True"
             ItemsSource="{Binding GroupedItems}">
-                <!--<CollectionView.GroupHeaderTemplate>
-                    <DataTemplate>
-                        <Grid
-                        Padding="20"
-                        BackgroundColor="PaleVioletRed">
-                            <Label Text="{Binding Name}" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.GroupHeaderTemplate>-->
+              
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout
