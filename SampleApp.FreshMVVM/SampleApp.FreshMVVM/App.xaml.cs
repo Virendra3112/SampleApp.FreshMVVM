@@ -31,19 +31,17 @@ namespace SampleApp.FreshMVVM
                 var rotation = mainDisplayInfo.Rotation;
 
                 // Width (in pixels)
-                var width = mainDisplayInfo.Width;
+                ScreenWidth = mainDisplayInfo.Width;
 
                 // Width (in xamarin.forms units)
-                var xamarinWidth = width / mainDisplayInfo.Density;
+                var xamarinWidth = ScreenWidth / mainDisplayInfo.Density;
 
                 // Height (in pixels)
-                var height = mainDisplayInfo.Height;
+                ScreenHeight = mainDisplayInfo.Height;
 
                 // Screen density
                 var density = mainDisplayInfo.Density;
 
-                ScreenWidth = width;
-                ScreenHeight = height;
 
                 //Set application culture by default based on device culture
                 var phoneCulture = DependencyService.Get<IAppLocale>().GetCurrentCultureInfo();
