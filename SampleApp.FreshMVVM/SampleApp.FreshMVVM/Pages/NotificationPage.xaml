@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Notification List"
+             x:Class="SampleApp.FreshMVVM.Pages.NotificationPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <StackLayout IsVisible="{Binding IsDataAvailable}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+                    <StackLayout BindableLayout.ItemsSource="{Binding NotificationList}"
+                                 Orientation="Vertical" Padding="0" Margin="0" Spacing="0" >
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="LightPink" Margin="10" Padding="0" IsClippedToBounds="False" HasShadow="False" CornerRadius="12">
+                                    <Grid RowSpacing="0" ColumnSpacing="0"
+                                  Padding="0" Margin="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="40"/>
+                                        </Grid.RowDefinitions>
+
+                                        <BoxView Grid.RowSpan="2" Grid.Column="0" BackgroundColor="Red"
+                                         Margin="0"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" />
+
+                                        <Image Grid.Row="0"  Grid.Column="1" Source="icon"
+                                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                       />
+
+                                        <StackLayout Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent"
+                                             HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                                             Padding="0" Margin="0" Spacing="0">
+
+                                            <Label FontSize="Medium" TextColor="Black" FontAttributes="Bold" Text="{Binding Title}"/>
+                                            <Label FontSize="Small" TextColor="Black" Text="{Binding Body}"/>
+
+                                        </StackLayout>
+
+                                        <Label Grid.Row="1" Grid.Column="2" FontSize="Small" 
+                                       HorizontalOptions="EndAndExpand" Padding="0,5,10,5"
+                                       TextColor="Black" Text="{Binding ReceivedDateTime}"/>
+
+                                    </Grid>
+                                    
+                                </Frame>
+
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+
+                </ScrollView>
+
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="false"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,120,100" AbsoluteLayout.LayoutFlags="PositionProportional">
+                
+                <Image Source="icon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+
+                <Label  FontSize="Small" TextColor="Black" Text="No notifications"
+                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                        />
+
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsDataAvailable}" Value="false">
+                        <Setter Property="IsVisible" Value="true"/>
+                    </DataTrigger>
+
+                </StackLayout.Triggers>
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
