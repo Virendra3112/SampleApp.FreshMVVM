@@ -75,6 +75,7 @@ namespace SampleApp.FreshMVVM.PageModels
                 MenuList.Add(new MenuItems { Id = 15, Name = "Notifications" });
                 MenuList.Add(new MenuItems { Id = 16, Name = "Export Logs" });
                 MenuList.Add(new MenuItems { Id = 16, Name = "DragDropList" });
+                MenuList.Add(new MenuItems { Id = 16, Name = "NotificationList" });
             }
             catch (Exception ex)
             {
@@ -191,6 +192,12 @@ namespace SampleApp.FreshMVVM.PageModels
 
                     case "DragDropList":
                         CoreMethods.PushPageModel<DragDropListPageModel>();
+                        AppHelper.MenuIsPresented = false;
+
+                        break;
+
+                    case "NotificationList":
+                        CoreMethods.PushPageModel<NotificationPageModel>();
                         AppHelper.MenuIsPresented = false;
 
                         break;
