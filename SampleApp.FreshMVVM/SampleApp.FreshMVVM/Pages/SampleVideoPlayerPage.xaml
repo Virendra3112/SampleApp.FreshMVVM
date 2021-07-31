@@ -7,7 +7,7 @@
     <ContentPage.Content>
 
 
-        <xct:MediaElement Source="http://tradeplusresources.com/demo/images/test.mp4"
+        <xct:MediaElement Source="https://sec.ch9.ms/ch9/37af/240037cc-e74a-421a-9946-7ce4205d37af/DiAndIocForXamarinForms.mp4"
                       ShowsPlaybackControls="True"
                       MediaOpened="OnMediaOpened"
                       MediaFailed="OnMediaFailed"
